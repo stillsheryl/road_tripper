@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'DailyWeather PORO' do
-  it 'can create a DailyWeather object' do
+describe DailyWeather, type: :poros do
+  before :each do
     weather_data = {
       :dt=>1610733600,
       :sunrise=>1610716728,
@@ -19,15 +19,25 @@ describe 'DailyWeather PORO' do
       :uvi=>2.29
     }
 
-    daily_weather = DailyWeather.new(weather_data)
+    @daily_weather = DailyWeather.new(weather_data)
+  end
 
-    expect(daily_weather.daily_date).to eq("2021/01/15")
-    expect(daily_weather.daily_sunrise).to eq('Fri, 15 Jan 2021 13:18:48 +0000')
-    expect(daily_weather.daily_sunset).to eq('Fri, 15 Jan 2021 23:31:51 +0000')
-    expect(daily_weather.daily_max_temp).to eq(283.31)
-    expect(daily_weather.daily_min_temp).to eq(276.94)
-    expect(daily_weather.daily_conditions).to eq('clear sky')
-    expect(daily_weather.daily_icon).to eq('01d')
-    expect(daily_weather.id).to eq(nil)
+  it 'can create a DailyWeather object' do
+    expect(@daily_weather).to be_an_instance_of(DailyWeather)
+    expect(@daily_weather.date).to eq("2021/01/15")
+    expect(@daily_weather.sunrise).to eq('2021/01/15 13:18:48')
+    expect(@daily_weather.sunset).to eq('2021/01/15 23:31:51')
+    expect(@daily_weather.max_temp).to eq(42.2)
+    expect(@daily_weather.min_temp).to eq(35.8)
+    expect(@daily_weather.conditions).to eq('clear sky')
+    expect(@daily_weather.icon).to eq('01d')
+    expect(@daily_weather.id).to eq(nil)
+  end
+
+  describe 'instance methods' do
+    it 'fahrenheit' do
+      temp = 271.63
+      expect(@daily_weather.fahrenheit(temp).round(1)).to eq(30.5)
+    end
   end
 end
