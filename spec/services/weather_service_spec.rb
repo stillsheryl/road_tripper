@@ -82,5 +82,8 @@ describe "Weather Service" do
     expect(hourly_weather[:weather].first[:description]).to be_a(String)
     expect(hourly_weather[:weather].first).to have_key(:icon)
     expect(hourly_weather[:weather].first[:icon]).to be_a(String)
+
+    expect(weather).to_not have_key(:minutely)
+    expect(weather).to_not have_key(:alerts)
   end
 end
