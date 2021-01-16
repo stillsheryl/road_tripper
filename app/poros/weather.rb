@@ -5,7 +5,7 @@ class Weather
               :id
 
   def initialize(weather_data)
-    @current_weather = current_weather_hash(weather_data)
+    @current_weather = current_weather_hash(weather_data[:current])
     @daily_weather = daily_weather_for_5_days(weather_data[:daily])
     @hourly_weather = hourly_weather_for_8_hours(weather_data[:hourly])
     @id = nil
@@ -13,16 +13,16 @@ class Weather
 
   def current_weather_hash(weather_data)
     {
-      datetime: DateTime.strptime(weather_data[:current][:dt].to_s,'%s'),
-      sunrise: DateTime.strptime(weather_data[:current][:sunrise].to_s,'%s'),
-      sunset: DateTime.strptime(weather_data[:current][:sunset].to_s,'%s'),
-      temperature: weather_data[:current][:temp],
-      feels_like: weather_data[:current][:feels_like],
-      humidity: weather_data[:current][:humidity],
-      uvi: weather_data[:current][:uvi],
-      visibility: weather_data[:current][:visibility],
-      conditions: weather_data[:current][:weather].first[:description],
-      icon: weather_data[:current][:weather].first[:icon]
+      datetime: DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
+      sunrise: DateTime.strptime(weather_data[:sunrise].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
+      sunset: DateTime.strptime(weather_data[:sunset].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
+      temperature: fahrenheit(weather_data[:temp]),
+      feels_like: fahrenheit(weather_data[:feels_like]),
+      humidity: weather_data[:humidity],
+      uvi: weather_data[:uvi],
+      visibility: weather_data[:visibility],
+      conditions: weather_data[:weather].first[:description],
+      icon: weather_data[:weather].first[:icon]
     }
   end
 
@@ -36,5 +36,9 @@ class Weather
     weather_data.first(8).map do |hourly|
       HourlyWeather.new(hourly)
     end
+  end
+
+  def fahrenheit(temp)
+    (temp - 273.15) * (9 / 5) + 32
   end
 end
