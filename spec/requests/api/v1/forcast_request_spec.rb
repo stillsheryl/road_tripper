@@ -8,9 +8,10 @@ describe "Forecast API" do
 
     get "/api/v1/forecast", params: params
 
-    expect(last_response.status).to eq(200)
-    # expect(last_response.body).to be_a(String)
+    expect(response.status).to eq(200)
 
-    # response = JSON.parse(last_response.body, symbolize_names: true)
+    forecast = JSON.parse(response.body, symbolize_names: true)
+
+    expect(forecast).to be_a(String)
   end
 end

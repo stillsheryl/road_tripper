@@ -4,6 +4,8 @@ class Api::V1::ForecastController < ApplicationController
 
     weather = WeatherFacade.weather(city_coordinates)
 
-    WeatherSerializer.new(weather).to_json
+    output = WeatherSerializer.new(weather).to_json
+
+    render json: output
   end
 end
