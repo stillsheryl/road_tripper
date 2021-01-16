@@ -31,7 +31,7 @@ describe "Weather Service" do
     expect(current_weather).to have_key(:humidity)
     expect(current_weather[:humidity]).to be_an(Integer)
     expect(current_weather).to have_key(:uvi)
-    expect(current_weather[:uvi]).to be_a(Float)
+    expect(current_weather[:uvi]).to be_a(Numeric)
     expect(current_weather).to have_key(:visibility)
     expect(current_weather[:visibility]).to be_an(Integer)
     expect(current_weather).to have_key(:weather)
