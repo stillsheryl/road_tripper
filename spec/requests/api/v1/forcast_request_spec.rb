@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Forecast API" do
-  it "sends the forecast for the given city" do
+  it "sends the forecast JSON data for the given city" do
     params = {
       location: "denver,co"
     }
