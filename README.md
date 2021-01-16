@@ -1,11 +1,6 @@
-# Project Title
+# Road Tripper
 
-One Paragraph of project description goes here
-
-This initially appeared on
-[gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2), but as
-I can no longer open that page as there are too many comments, I have
-moved it here.
+This is the backend of a road trip planning app will allow users to see the current weather as well as the forecasted weather at the destination they're looking to visit. This application provides multiple enpoints for the front end application, including weather, images, and login capabilities.
 
 ## Summary
 
@@ -37,9 +32,11 @@ A step by step series of examples that tell you how to get a development
 env running
 
 ```
+git clone git@github.com:stillsheryl/road_tripper.git
+cd road_tripper
 bundle install
-bundle exec rake db:create
-bundle exec figaro install
+rake db:create
+figaro install
 ```
 
 * Visit the [OpenWeather API documentation](https://openweathermap.org/api) and follow the link to sign up for an API key.
@@ -85,7 +82,9 @@ end
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+* For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code.
+
+* In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
 
 ### Break down into end to end tests
 
@@ -121,14 +120,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions
 available, see the [tags on this
 repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
-## Authors
+## Author
 
-  - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of
-[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
-who participated in this project.
+Sheryl Stillman: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/sherylstillman1/), [Email](mailto:sheryl.stillman@gmail.com), [GitHub](https://github.com/stillsheryl)
 
 ## License
 
