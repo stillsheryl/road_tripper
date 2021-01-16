@@ -4,7 +4,7 @@ describe "Weather Service" do
   it "sends the forecast for the given city when given lat/long params" do
     params = {
       lat: "33",
-      lon: "-94"
+      long: "-94"
     }
     weather = WeatherService.get_weather(params)
 
@@ -31,7 +31,7 @@ describe "Weather Service" do
     expect(current_weather).to have_key(:humidity)
     expect(current_weather[:humidity]).to be_an(Integer)
     expect(current_weather).to have_key(:uvi)
-    expect(current_weather[:uvi]).to be_an(Integer)
+    expect(current_weather[:uvi]).to be_a(Numeric)
     expect(current_weather).to have_key(:visibility)
     expect(current_weather[:visibility]).to be_an(Integer)
     expect(current_weather).to have_key(:weather)

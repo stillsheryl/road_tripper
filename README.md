@@ -6,7 +6,7 @@ This is the backend of a road trip planning app will allow users to see the curr
 
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
-  - [Deployment](#deployment)
+  - [API Endpoint](#api-endpoints)
   - [Built With](#built-with)
   - [Contributing](#contributing)
   - [Versioning](#versioning)
@@ -19,12 +19,6 @@ This is the backend of a road trip planning app will allow users to see the curr
 These instructions will get you a copy of the project up and running on
 your local machine for development and testing purposes. See deployment
 for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-    Give examples
 
 ### Installing
 
@@ -98,9 +92,72 @@ Explain what these tests test and why
 
     Give an example
 
-## Deployment
+## API Endpoints
 
-Add additional notes about how to deploy this on a live system
+`GET /api/v1/forecast`
+
+Required parameters:
+
+- `location`: (string) - this is the city and state in the format as seen below
+
+Example:
+`{
+  location: "denver,co"
+  }`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/forecast?location=%22denver,co%22`
+
+Example results:
+```
+{
+    "data": {
+        "id": null,
+        "type": "forecast",
+        "attributes": {
+            "current_weather": {
+                "datetime": "2021/01/16 23:16:44",
+                "sunrise": "2021/01/16 14:18:33",
+                "sunset": "2021/01/17  0:00:41",
+                "temperature": 37.75,
+                "feels_like": 34.77000000000004,
+                "humidity": 44,
+                "uvi": 0.18,
+                "visibility": 10000,
+                "conditions": "clear sky",
+                "icon": "01d"
+            },
+            "daily_weather": [
+                {
+                    "date": "2021/01/16",
+                    "sunrise": "2021/01/16 14:18:33",
+                    "sunset": "2021/01/17  0:00:41",
+                    "max_temp": 38.620000000000005,
+                    "min_temp": 33.03000000000003,
+                    "conditions": "clear sky",
+                    "icon": "01d",
+                    "id": null
+                },
+                ... you'll see 4 more daily_weather results here ...
+            ],
+            "hourly_weather": [
+                {
+                    "time": " 0:00:00",
+                    "temperature": 37.75,
+                    "wind_speed": "2.59 mph",
+                    "wind_direction": "from SE",
+                    "conditions": "clear sky",
+                    "icon": "01d",
+                    "id": null
+                },
+                  ... you'll see 7 more hourly_weather results here ...
+            ],
+            "id": null
+        }
+    }
+}
+```
 
 ## Built With
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Geocoding Service" do
   it "sends the lattitude and longitude for the given city" do
     params = {
-      city: "denver,co"
+      location: "denver,co"
     }
     results = GeocodingService.get_coordinates(params)
 
