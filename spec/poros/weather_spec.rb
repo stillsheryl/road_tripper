@@ -3,9 +3,9 @@ require 'rails_helper'
 describe Weather, type: :poros do
   before :each do
     weather_data = File.read('spec/fixtures/weather_data.json')
-    weather_info = JSON.parse(weather_data, symbolize_names: true)
+    @weather_info = JSON.parse(weather_data, symbolize_names: true)
 
-    @weather = Weather.new(weather_info)
+    @weather = Weather.new(@weather_info)
   end
 
   it 'can create a Weather object' do
@@ -36,6 +36,18 @@ describe Weather, type: :poros do
   end
 
   describe 'instance methods' do
+  #   it 'current_weather_hash' do
+  #     expect(@weather.current_weather_hash(@weather_info)).to be_a(Hash)
+  #   end
+  #
+  #   it 'daily_weather_for_5_days' do
+  #     expect(@weather.daily_weather_for_5_days(@weather_info)).to be_an(Array)
+  #   end
+  #
+  #   it 'hourly_weather_for_8_hours' do
+  #     expect(@weather.hourly_weather_for_8_hours(@weather_info)).to be_an(Array)
+  #   end
+
     it 'fahrenheit' do
       temp = 271.63
       expect(@weather.fahrenheit(temp).round(1)).to eq(30.5)
