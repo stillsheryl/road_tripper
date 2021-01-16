@@ -7,8 +7,6 @@ describe "Forecast API" do
     }
     get "/api/v1/forecast", params: params
 
-    require "pry"; binding.pry
-
     expect(last_response.status).to eq(200)
     # expect(last_response.body).to be_a(String)
 
