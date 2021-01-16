@@ -10,10 +10,17 @@ class HourlyWeather
   def initialize(weather_data)
     @time = Date.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
     @temperature = weather_data[:temp]
-    @wind_speed = weather_data[:wind_speed]
-    @wind_direction = weather_data[:wind_deg]
+    @wind_speed = "#{weather_data[:wind_speed]} mph"
+    @wind_direction = "from #{wind_direction_from_integer(weather_data[:wind_deg])}"
     @conditions = weather_data[:weather].first[:description]
     @icon = weather_data[:weather].first[:icon]
     @id = nil
+  end
+
+  def wind_direction_from_integer(integer)
+    val = (integer / 22.5) + (0.5)
+    index = (val % 16)
+    arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+    arr[index]
   end
 end
