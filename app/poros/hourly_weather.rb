@@ -9,7 +9,7 @@ class HourlyWeather
 
   def initialize(weather_data)
     @time = Date.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
-    @temperature = weather_data[:temp]
+    @temperature = fahrenheit(weather_data[:temp])
     @wind_speed = "#{weather_data[:wind_speed]} mph"
     @wind_direction = "from #{wind_direction_from_integer(weather_data[:wind_deg])}"
     @conditions = weather_data[:weather].first[:description]
@@ -22,5 +22,9 @@ class HourlyWeather
     index = (val % 16)
     arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
     arr[index]
+  end
+
+  def fahrenheit(temp)
+    (temp - 273.15) * (9 / 5) + 32
   end
 end
