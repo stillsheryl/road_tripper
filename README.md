@@ -42,6 +42,13 @@ bundle exec rake db:create
 bundle exec figaro install
 ```
 
+* Visit the [OpenWeather API documentation](https://openweathermap.org/api) and follow the link to sign up for an API key.
+
+The `figaro install` command will create an `application.yml` file in your config folder. In that folder, at the bottom of the file add your API as below:
+```
+WEATHER_API_KEY: "<<Your API key here>>"
+```
+
 Say what the step will be
 
     Give the example
