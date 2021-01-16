@@ -4,7 +4,7 @@ describe "Weather Service" do
   it "sends the forecast for the given city when given lat/long params" do
     params = {
       lat: "33",
-      lon: "-94"
+      long: "-94"
     }
     weather = WeatherService.get_weather(params)
 

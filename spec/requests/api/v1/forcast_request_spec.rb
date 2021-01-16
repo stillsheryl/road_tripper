@@ -5,6 +5,7 @@ describe "Forecast API" do
     params = {
       location: "denver,co"
     }
+
     get "/api/v1/forecast", params: params
 
     expect(last_response.status).to eq(200)

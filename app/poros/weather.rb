@@ -9,7 +9,9 @@ class Weather
               :visibility,
               :conditions,
               :icon,
-              :daily_weather
+              :daily_weather,
+              :hourly_weather,
+              :id
 
   def initialize(weather_data)
     @datetime = DateTime.strptime(weather_data[:current][:dt].to_s,'%s')
@@ -23,19 +25,20 @@ class Weather
     @conditions = weather_data[:current][:weather].first[:description]
     @icon = weather_data[:current][:weather].first[:icon]
 
-    @daily_weather = daily_weather_for_5_days(weather_data)
+    @daily_weather = daily_weather_for_5_days(weather_data[:daily])
+    @hourly_weather = hourly_weather_for_8_hours(weather_data[:hourly])
+    @id = nil
   end
 
   def daily_weather_for_5_days(weather_data)
-    weather_data[:daily].map do |daily|
-      daily
-      # @daily_date = daily[:dt]
-      # @daily_sunrise = daily[:sunrise]
-      # @daily_sunset = daily[:sunset]
-      # @daily_max_temp = daily[:temp][:max]
-      # @daily_min_temp = daily[:temp][:min]
-      # @daily_conditions = daily[:weather][:description]
-      # @daily_icon = daily[:weather][:icon]
+    weather_data.first(5).map do |daily|
+      DailyWeather.new(daily)
+    end
+  end
+
+  def hourly_weather_for_8_hours(weather_data)
+    weather_data.first(8).map do |hourly|
+      HourlyWeather.new(hourly)
     end
   end
 end

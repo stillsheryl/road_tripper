@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Geocoding Facade" do
   it "retrieves the lattitude and longitude for the given city" do
     params = {
-      city: "denver,co"
+      location: "denver,co"
     }
     results = GeocodingFacade.coordinates(params)
 

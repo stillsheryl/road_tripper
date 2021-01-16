@@ -18,6 +18,12 @@ describe 'Weather PORO' do
     expect(weather.conditions).to eq('clear sky')
     expect(weather.icon).to eq('01n')
 
-    expect(daily_weather).to be_an(Array)
+    expect(weather.daily_weather).to be_an(Array)
+    expect(weather.daily_weather.count).to eq(5)
+    expect(weather.daily_weather.first).to be_an_instance_of(DailyWeather)
+
+    expect(weather.hourly_weather).to be_an(Array)
+    expect(weather.hourly_weather.count).to eq(8)
+    expect(weather.hourly_weather.first).to be_an_instance_of(HourlyWeather)
   end
 end

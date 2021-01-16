@@ -7,7 +7,7 @@ class GeocodingService
 
   def self.get_coordinates(params)
     response = conn.get('/geocoding/v1/address') do |req|
-      req.params["location"] = params
+      req.params["location"] = params[:location]
     end
 
     JSON.parse(response.body, symbolize_names: true)
