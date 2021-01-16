@@ -77,7 +77,7 @@ describe "Weather Service" do
     expect(hourly_weather).to have_key(:wind_speed)
     expect(hourly_weather[:wind_speed]).to be_a(Float)
     expect(hourly_weather).to have_key(:wind_deg)
-    expect(hourly_weather[:wind_deg]).to be_a(Float)
+    expect(hourly_weather[:wind_deg]).to be_a(Integer)
     expect(hourly_weather[:weather].first).to have_key(:description)
     expect(hourly_weather[:weather].first[:description]).to be_a(String)
     expect(hourly_weather[:weather].first).to have_key(:icon)
