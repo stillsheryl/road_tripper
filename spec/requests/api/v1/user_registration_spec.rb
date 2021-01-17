@@ -7,10 +7,10 @@ describe "User Registration API endpoint" do
       "Accept": "application/json"
     }
     params = {
-      email: "whatever@example.com",
-      password: "password",
-      password_confirmation: "password"
-    }
+      "email": "whatever@example.com",
+      "password": "password",
+      "password_confirmation":"password"
+      }
 
     post "/api/v1/users", headers: headers, params: params.to_json
 
