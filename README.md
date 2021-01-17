@@ -14,7 +14,6 @@ This is the backend of a road trip planning app will allow users to see the curr
   - [API Endpoint](#api-endpoints)
   - [Versioning](#versioning)
   - [Authors](#authors)
-  - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
@@ -183,13 +182,7 @@ This is the first version of this API. If you have any comments or feedback, ple
 
 ## Author
 
-Sheryl Stillman: [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/sherylstillman1/), [Email](mailto:sheryl.stillman@gmail.com), [GitHub](https://github.com/stillsheryl)
-
-## License
-
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
+Sheryl Stillman: [![LinkedIn](https://www.linkedin.com/in/sherylstillman1/) - [Email](mailto:sheryl.stillman@gmail.com) -  [GitHub](https://github.com/stillsheryl)
 
 ## Acknowledgments
 
