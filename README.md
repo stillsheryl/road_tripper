@@ -37,10 +37,13 @@ figaro install
 
 * Visit the [Mapquest API documentation](https://developer.mapquest.com/documentation/geocoding-api/address/get/) and follow the link to sign up for an API key.
 
+* Visit the [Unsplash API documentation](https://unsplash.com/developers) and follow the link to sign up for an API key.
+
 The `figaro install` command will create an `application.yml` file in your config folder. In that folder, at the bottom of the file add your API as below:
 ```
 WEATHER_API_KEY: "<<Your API key here>>"
 GEOCODING_API_KEY: "<<Your API key here>>"
+PHOTO_API_KEY: "<<Your API key here>>"
 ```
 
 Say what the step will be
@@ -94,11 +97,11 @@ Explain what these tests test and why
 
 ## API Endpoints
 
-`GET /api/v1/forecast`
+### `GET /api/v1/forecast`
 
 Required parameters:
 
-- `location`: (string) - this is the city and state in the format as seen below
+- `location`: (string) - the city and state in the format as seen below
 
 Example:
 `{
@@ -158,6 +161,44 @@ Example results:
     }
 }
 ```
+
+### `GET /api/v1/backgrounds`
+
+Required parameters:
+
+- `location`: (string) - the city and state in the format as seen below
+
+Example:
+`{
+  location: "denver,co"
+  }`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/backgrounds?location=denver,co`
+
+Example results:
+```
+{
+    "data": {
+        "id": null,
+        "type": "image",
+        "attributes": {
+            "image": {
+                "location": "denver,co",
+                "image_url": "https://images.unsplash.com/photo-1600041161228-519e6dd27bac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxOTkxNDl8MHwxfHNlYXJjaHwxfHxkZW52ZXIsY298ZW58MHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
+                "credit": {
+                    "photographer_name": "Michael Kilcoyne",
+                    "photographer_profile_link": "https://unsplash.com/@mikekilcoyne?utm_source=road_tripper&utm_medium=referral",
+                    "source_link": "https://unsplash.com/?utm_source=road_tripper&utm_medium=referral"
+                }
+            }
+        }
+    }
+}
+```
+
+**Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
 
 ## Built With
 
