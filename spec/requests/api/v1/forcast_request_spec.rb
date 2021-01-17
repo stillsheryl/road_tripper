@@ -87,4 +87,14 @@ describe "Forecast API" do
     expect(hourly_weather).to have_key(:icon)
     expect(hourly_weather[:icon]).to be_a(String)
   end
+
+  xit "sends an error message if the coordinates do not exist for given city" do
+    params = {
+      location: "Hadlfoggbre"
+    }
+
+    get "/api/v1/forecast", params: params
+
+    expect(response.status).to eq(400)
+  end
 end

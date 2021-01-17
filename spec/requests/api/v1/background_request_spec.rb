@@ -42,4 +42,18 @@ describe "Background API" do
     expect(credit).to have_key(:source_link)
     expect(credit[:source_link]).to be_a(String)
   end
+
+  xit "sends the image JSON data for the given city" do
+    params = {
+      location: "dbwuqiCBVYWrbretr"
+    }
+
+    get "/api/v1/backgrounds", params: params
+
+    expect(response.status).to eq(400)
+
+    image = JSON.parse(response.body, symbolize_names: true)
+
+    expect(image).to be_a(Hash)
+  end
 end

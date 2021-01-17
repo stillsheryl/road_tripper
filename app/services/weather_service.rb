@@ -6,12 +6,23 @@ class WeatherService
   end
 
   def self.get_weather(params)
-    response = conn.get('/data/2.5/onecall') do |req|
-      req.params['lat'] = params[:lat]
-      req.params['lon'] = params[:long]
-      req.params['exclude'] = 'minutely,alerts'
-    end
+    if check_lat_lon(params)
+      response = conn.get('/data/2.5/onecall') do |req|
+        req.params['lat'] = params[:lat]
+        req.params['lon'] = params[:long]
+        req.params['exclude'] = 'minutely,alerts'
+      end
 
-    JSON.parse(response.body, symbolize_names: true)
+      JSON.parse(response.body, symbolize_names: true)
+    else
+      {
+        error: 'Please provide valid latitude and longitude values.',
+        status: 400
+      }
+    end
+  end
+
+  def self.check_lat_lon(params)
+    params[:lat].to_i.between?(-90, 90) && params[:long].to_i.between?(-180, 180)
   end
 end
