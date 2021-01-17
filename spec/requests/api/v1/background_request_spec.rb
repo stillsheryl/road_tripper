@@ -18,5 +18,28 @@ describe "Background API" do
     expect(image[:data]).to have_key(:id)
     expect(image[:data][:id]).to eq(nil)
     expect(image[:data]).to have_key(:type)
+    expect(image[:data]).to have_key(:type)
+    expect(image[:data][:type]).to eq("image")
+    expect(image[:data]).to have_key(:attributes)
+    expect(image[:data][:attributes]).to be_a(Hash)
+    expect(image[:data][:attributes]).to have_key(:image)
+    expect(image[:data][:attributes][:image]).to be_a(Hash)
+
+    photo = image[:data][:attributes][:image]
+
+    expect(photo).to have_key(:location)
+    expect(photo[:location]).to be_a(String)
+    expect(photo).to have_key(:image_url)
+    expect(photo[:image_url]).to be_a(String)
+    expect(photo).to have_key(:credit)
+    expect(photo[:credit]).to be_a(Hash)
+
+    credit = photo[:credit]
+    expect(credit).to have_key(:photographer_name)
+    expect(credit[:photographer_name]).to be_a(String)
+    expect(credit).to have_key(:photographer_profile_link)
+    expect(credit[:photographer_profile_link]).to be_a(String)
+    expect(credit).to have_key(:source_link)
+    expect(credit[:source_link]).to be_a(String)
   end
 end
