@@ -129,8 +129,7 @@ Example results:
                     "icon": "01d"
                 },
                   ... you'll see 7 more hourly_weather results here ...
-            ],
-            "id": null
+            ]
         }
     }
 }
@@ -233,6 +232,45 @@ Example results:
         "attributes": {
             "email": "whatever@example.com",
             "api_key": "aaebec8d-c4e7-4bdb-910a-77ce20a5885e"
+        }
+    }
+}
+```
+
+### `POST /api/v1/road_trip`
+
+Required parameters:
+
+- `origin`: (string) - origin city for trip in `<City>, <State Abbreviation>` format
+- `destination`: (string) - destination city for trip in `<City>, <State Abbreviation>` format
+- `api_key`: (string) - user api_key
+
+Example:
+`{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "longspecialcodehere"
+  }`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add ???
+
+Example results:
+
+```
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver,CO",
+            "end_city": "Pueblo,CO",
+            "travel_time": "01:44",
+            "weather_at_eta": {
+                "temperature": 37.610000000000014,
+                "conditions": "scattered clouds"
+            }
         }
     }
 }
