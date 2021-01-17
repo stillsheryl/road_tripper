@@ -2,11 +2,15 @@ require 'rails_helper'
 
 describe "Background API endpoint" do
   it "sends the image JSON data for the given city" do
+    headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
     params = {
       location: "denver,co"
     }
 
-    get "/api/v1/backgrounds", params: params
+    get "/api/v1/backgrounds", headers: headers, params: params
 
     expect(response.status).to eq(200)
 

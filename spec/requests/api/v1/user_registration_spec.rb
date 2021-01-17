@@ -2,13 +2,17 @@ require 'rails_helper'
 
 describe "User Registration API endpoint" do
   it "when a user provides an email and password, their user information is returned, including an API key" do
+    headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
     params = {
       email: "whatever@example.com",
       password: "password",
       password_confirmation: "password"
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/users", headers: headers, params: params.to_json
 
     expect(response.status).to eq(201)
 
