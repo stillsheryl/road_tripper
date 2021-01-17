@@ -24,4 +24,17 @@ describe "Photo Facade" do
     expect(credit).to have_key(:source_link)
     expect(credit[:source_link]).to be_a(String)
   end
+
+  it "sends an error when no matches for a city,state search" do
+    params = {
+      location: "fwuehPHVUE9Wobwiovgbrqb"
+    }
+    photo = PhotoFacade.photo(params)
+
+    expect(photo).to be_a(Hash)
+    expect(photo).to have_key(:status)
+    expect(photo[:status]).to eq(400)
+    expect(photo).to have_key(:error)
+    expect(photo[:error]).to eq('Please provide a valid city for the search.')
+  end
 end
