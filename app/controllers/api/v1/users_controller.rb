@@ -27,11 +27,4 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
-
-  def new_user_params(user_params, user)
-    new_params = {}
-    new_params[:email] = user_params[:email]
-    new_params[:api_key] = user.api_key
-    new_params
-  end
 end
