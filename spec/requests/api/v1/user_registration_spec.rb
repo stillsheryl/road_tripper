@@ -46,4 +46,24 @@ describe "User Registration API endpoint" do
     expect(user[:error]).to eq("Password confirmation doesn't match Password")
     expect(user[:status]).to eq(400)
   end
+
+  it "returns an error if email is not unique" do
+    user1 = User.create!(email: "whatever@example.com", password: "sneaky_password", api_key: "longspecialcodehere")
+
+    params = {
+      email: "whatever@example.com",
+      password: "password",
+      password_confirmation: "password"
+    }
+
+    post "/api/v1/users", params: params
+
+    expect(response.status).to eq(400)
+
+    user = JSON.parse(response.body, symbolize_names: true)
+
+    expect(user).to be_a(Hash)
+    expect(user[:error]).to eq("Email has already been taken")
+    expect(user[:status]).to eq(400)
+  end
 end
