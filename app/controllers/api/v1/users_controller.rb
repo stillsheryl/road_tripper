@@ -9,10 +9,17 @@ class Api::V1::UsersController < ApplicationController
     end
 
     if user.save
-      params = new_user_params(user_params, user)
-      user_obj = User.new(params)
-      output = UserSerializer.new(user_obj).to_json
-      render json: output, status: :created
+      # params = new_user_params(user_params, user)
+      # user_obj = User.new(params)
+      # output = UserSerializer.new(user_obj).to_json
+      # render json: output, status: :created
+
+
+
+      output = UserSerializer.new(user)
+
+      render json: output.as_json.merge(api_key: user.api_key), status: :created
+
     else
       error_message = {
         error: user.errors.full_messages.to_sentence,
