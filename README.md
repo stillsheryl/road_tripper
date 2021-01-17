@@ -172,6 +172,40 @@ Example results:
 }
 ```
 
+### `POST /api/v1/users`
+
+Required parameters:
+
+- `email`: (string) - user email, must be unique
+- `password`: (string) - user password
+- `password_confirmation`: (string) - user password confirmation must match the password field
+
+Example:
+`{
+  "email": "whatever@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add ???
+
+Example results:
+
+```
+{
+    "data": {
+        "id": "3",
+        "type": "users",
+        "attributes": {
+            "email": "whatever@example.com",
+            "api_key": "e28ab574-8cd0-45cd-9b5d-39bb263e1f14"
+        }
+    }
+}
+```
+
 **Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
 
 ## Versioning
