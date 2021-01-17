@@ -125,5 +125,10 @@ describe "Weather Service" do
     expect(hourly_weather[:weather]).to be_an(Array)
     expect(hourly_weather[:weather].first).to have_key(:description)
     expect(hourly_weather[:weather].first[:description]).to be_a(String)
+
+    expect(weather).to_not have_key(:minutely)
+    expect(weather).to_not have_key(:alerts)
+    expect(weather).to_not have_key(:current)
+    expect(weather).to_not have_key(:daily)
   end
 end
