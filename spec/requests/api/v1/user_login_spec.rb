@@ -1,20 +1,24 @@
 require 'rails_helper'
 
-describe "User Registration API endpoint" do
-  it "when a user provides an email and password, their user information is returned, including an API key" do
-    headers = {
+describe "User Login API endpoint" do
+  before :each do
+    User.create!(email: "whatever@example.com", password: "password", api_key: "longspecialcodehere")
+
+    @headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
     }
-    params = {
+  end
+
+  it "when a user provides a valid email and password, their user information is returned, including an API key" do
+    @params = {
       "email": "whatever@example.com",
       "password": "password",
-      "password_confirmation":"password"
-      }
+    }
 
-    post "/api/v1/users", headers: headers, params: params.to_json
+    post "/api/v1/sessions", headers: @headers, params: @params.to_json
 
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
 
     user = JSON.parse(response.body, symbolize_names: true)
 
@@ -33,59 +37,54 @@ describe "User Registration API endpoint" do
     expect(user[:data][:attributes][:api_key]).to be_a(String)
   end
 
-  it "returns an error if passwords don't match" do
-    params = {
-      email: "whatever@example.com",
-      password: "password",
-      password_confirmation: "password1"
+  it "when a user provides an invalid email an error is received" do
+    @params = {
+      "email": "whatever111@example.com",
+      "password": "password",
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/sessions", headers: @headers, params: @params.to_json
 
     expect(response.status).to eq(400)
 
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("Password confirmation doesn't match Password")
+    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 
-  it "returns an error if email is not unique" do
-    user1 = User.create!(email: "whatever@example.com", password: "sneaky_password", api_key: "longspecialcodehere")
-
-    params = {
-      email: "whatever@example.com",
-      password: "password",
-      password_confirmation: "password"
+  it "when a user provides an incorrect password an error is received" do
+    @params = {
+      "email": "whatever@example.com",
+      "password": "wrongpassword",
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/sessions", headers: @headers, params: @params.to_json
 
     expect(response.status).to eq(400)
 
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("Email has already been taken")
+    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 
-  it "returns an error if a field is missing" do
-    params = {
-      email: "",
-      password: "password",
-      password_confirmation: "password"
+  it "when a user skips a field an error is received" do
+    @params = {
+      "email": "",
+      "password": "password",
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/sessions", headers: @headers, params: @params.to_json
 
     expect(response.status).to eq(400)
 
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("Email can't be blank")
+    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 end

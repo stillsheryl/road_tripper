@@ -1,6 +1,6 @@
 <!-- Shields -->
-![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
+![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
 
 # Road Tripper
@@ -201,6 +201,38 @@ Example results:
         "attributes": {
             "email": "whatever@example.com",
             "api_key": "e28ab574-8cd0-45cd-9b5d-39bb263e1f14"
+        }
+    }
+}
+```
+
+### `POST /api/v1/sessions`
+
+Required parameters:
+
+- `email`: (string) - user email, must be unique
+- `password`: (string) - user password
+
+Example:
+`{
+  "email": "whatever@example.com",
+  "password": "password",
+}`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add ???
+
+Example results:
+
+```
+{
+    "data": {
+        "id": "7",
+        "type": "users",
+        "attributes": {
+            "email": "whatever@example.com",
+            "api_key": "aaebec8d-c4e7-4bdb-910a-77ce20a5885e"
         }
     }
 }
