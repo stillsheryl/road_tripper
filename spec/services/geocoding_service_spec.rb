@@ -5,7 +5,7 @@ describe "Geocoding Service" do
     params = {
       location: "denver,co"
     }
-    results = GeocodingService.get_coordinates(params)
+    results = GeocodingService.get_coordinates(params[:location])
 
     expect(results).to be_a(Hash)
     expect(results).to have_key(:results)

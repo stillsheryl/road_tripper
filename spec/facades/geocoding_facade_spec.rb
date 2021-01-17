@@ -5,7 +5,7 @@ describe "Geocoding Facade" do
     params = {
       location: "denver,co"
     }
-    results = GeocodingFacade.coordinates(params)
+    results = GeocodingFacade.coordinates(params[:location])
 
     expect(results).to be_an (Hash)
     expect(results[:lat]).to be_a(Float)
