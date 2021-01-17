@@ -19,8 +19,7 @@ This is the backend of a road trip planning app will allow users to see the curr
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on how to deploy the project on a live system.
+your local machine for development and testing purposes.
 
 ### Installing
 
@@ -38,7 +37,7 @@ figaro install
 
 * Visit the [Unsplash API documentation](https://unsplash.com/developers) and follow the link to sign up for an API key.
 
-The `figaro install` command will create an `application.yml` file in your config folder. In that folder, at the bottom of the file add your API as below:
+The `figaro install` command will have created an `application.yml` file in your config folder. In that file, at the very bottom add your API keys as below:
 ```
 WEATHER_API_KEY: "<<Your API key here>>"
 GEOCODING_API_KEY: "<<Your API key here>>"
@@ -52,6 +51,7 @@ The following gems were used:
 gem 'faraday'
 gem 'figaro'
 gem 'fast_jsonapi'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -171,6 +171,9 @@ Example results:
 }
 ```
 
+**Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
+
+
 ### `POST /api/v1/users`
 
 Required parameters:
@@ -276,7 +279,6 @@ Example results:
 }
 ```
 
-**Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
 
 ## Versioning
 
@@ -284,7 +286,7 @@ This is the first version of this API. If you have any comments or feedback, ple
 
 ## Author
 
-Sheryl Stillman: [![LinkedIn](https://www.linkedin.com/in/sherylstillman1/) - [Email](mailto:sheryl.stillman@gmail.com) -  [GitHub](https://github.com/stillsheryl)
+Sheryl Stillman: [LinkedIn](https://www.linkedin.com/in/sherylstillman1/) - [Email](mailto:sheryl.stillman@gmail.com) -  [GitHub](https://github.com/stillsheryl)
 
 ## Acknowledgments
 
