@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 ![](https://img.shields.io/gem/v/fast_jsonapi)
-![](https://img.shields.io/github/issues/stillsheryl/road-tripper)
+![](https://img.shields.io/github/issues/road-tripper)
 
 
 # Road Tripper
