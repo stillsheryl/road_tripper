@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe "Road Trip API endpoint" do
-  it "" do
+  it "returns road trip data JSON when valid input is given" do
+    User.create!(email: "whatever@example.com", password: "password", api_key: "longspecialcodehere")
     headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
@@ -9,7 +10,7 @@ describe "Road Trip API endpoint" do
     params = {
       "origin": "Denver,CO",
       "destination": "Pueblo,CO",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
+      "api_key": "longspecialcodehere"
       }
 
     post "/api/v1/road_trip", headers: headers, params: params.to_json
