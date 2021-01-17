@@ -3,12 +3,12 @@ require 'rails_helper'
 describe "User Registration API endpoint" do
   it "when a user provides an email and password, their user information is returned, including an API key" do
     params = {
-      email: whatever@example.com,
-      password: password,
-      password_confirmation: password
+      email: "whatever@example.com",
+      password: "password",
+      password_confirmation: "password"
     }
 
-    get "/api/v1/user", params: params
+    get "/api/v1/users", params: params
 
     expect(response.status).to eq(201)
 
