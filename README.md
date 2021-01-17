@@ -1,3 +1,10 @@
+<!-- Shields -->
+![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Ruby-2.5.3-orange)
+![](https://img.shields.io/gem/v/fast_jsonapi)
+![](https://img.shields.io/badge/road-tripper-red)
+
+
 # Road Tripper
 
 This is the backend of a road trip planning app will allow users to see the current weather as well as the forecasted weather at the destination they're looking to visit. This application provides multiple enpoints for the front end application, including weather, images, and login capabilities.
@@ -7,8 +14,6 @@ This is the backend of a road trip planning app will allow users to see the curr
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
   - [API Endpoint](#api-endpoints)
-  - [Built With](#built-with)
-  - [Contributing](#contributing)
   - [Versioning](#versioning)
   - [Authors](#authors)
   - [License](#license)
@@ -21,9 +26,6 @@ your local machine for development and testing purposes. See deployment
 for notes on how to deploy the project on a live system.
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development
-env running
 
 ```
 git clone git@github.com:stillsheryl/road_tripper.git
@@ -45,17 +47,6 @@ WEATHER_API_KEY: "<<Your API key here>>"
 GEOCODING_API_KEY: "<<Your API key here>>"
 PHOTO_API_KEY: "<<Your API key here>>"
 ```
-
-Say what the step will be
-
-    Give the example
-
-And repeat
-
-    until finished
-
-End with an example of getting some data out of the system or using it
-for a little demo
 
 ### Dependencies
 
@@ -82,18 +73,6 @@ end
 * For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code.
 
 * In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-    Give an example
-
-### And coding style tests
-
-Explain what these tests test and why
-
-    Give an example
 
 ## API Endpoints
 
@@ -200,23 +179,9 @@ Example results:
 
 **Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
 
-## Built With
-
-  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
-    for the Code of Conduct
-  - [Creative Commons](https://creativecommons.org/) - Used to choose
-    the license
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
-
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
+This is the first version of this API. If you have any comments or feedback, please feel free to reach out to me!
 
 ## Author
 
@@ -230,6 +195,4 @@ details
 
 ## Acknowledgments
 
-  - Hat tip to anyone whose code was used
-  - Inspiration
-  - etc
+Thank you to Ian and Dione, my Mod 3 Turing Instructors, for the continued support and encouragement!
