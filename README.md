@@ -37,10 +37,13 @@ figaro install
 
 * Visit the [Mapquest API documentation](https://developer.mapquest.com/documentation/geocoding-api/address/get/) and follow the link to sign up for an API key.
 
+* Visit the [Unsplash API documentation](https://unsplash.com/developers) and follow the link to sign up for an API key.
+
 The `figaro install` command will create an `application.yml` file in your config folder. In that folder, at the bottom of the file add your API as below:
 ```
 WEATHER_API_KEY: "<<Your API key here>>"
 GEOCODING_API_KEY: "<<Your API key here>>"
+PHOTO_API_KEY: "<<Your API key here>>"
 ```
 
 Say what the step will be
