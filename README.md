@@ -129,8 +129,7 @@ Example results:
                     "icon": "01d"
                 },
                   ... you'll see 7 more hourly_weather results here ...
-            ],
-            "id": null
+            ]
         }
     }
 }
