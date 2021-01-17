@@ -66,4 +66,22 @@ describe "User Registration API endpoint" do
     expect(user[:error]).to eq("Email has already been taken")
     expect(user[:status]).to eq(400)
   end
+
+  it "returns an error if a field is missing" do
+    params = {
+      email: "",
+      password: "password",
+      password_confirmation: "password"
+    }
+
+    post "/api/v1/users", params: params
+
+    expect(response.status).to eq(400)
+
+    user = JSON.parse(response.body, symbolize_names: true)
+
+    expect(user).to be_a(Hash)
+    expect(user[:error]).to eq("Email can't be blank")
+    expect(user[:status]).to eq(400)
+  end
 end
