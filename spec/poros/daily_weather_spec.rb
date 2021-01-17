@@ -31,7 +31,6 @@ describe DailyWeather, type: :poros do
     expect(@daily_weather.min_temp).to eq(35.79000000000002)
     expect(@daily_weather.conditions).to eq('clear sky')
     expect(@daily_weather.icon).to eq('01d')
-    expect(@daily_weather.id).to eq(nil)
   end
 
   describe 'instance methods' do

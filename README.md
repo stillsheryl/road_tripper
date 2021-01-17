@@ -115,8 +115,7 @@ Example results:
                     "max_temp": 38.620000000000005,
                     "min_temp": 33.03000000000003,
                     "conditions": "clear sky",
-                    "icon": "01d",
-                    "id": null
+                    "icon": "01d"
                 },
                 ... you'll see 4 more daily_weather results here ...
             ],
@@ -127,8 +126,7 @@ Example results:
                     "wind_speed": "2.59 mph",
                     "wind_direction": "from SE",
                     "conditions": "clear sky",
-                    "icon": "01d",
-                    "id": null
+                    "icon": "01d"
                 },
                   ... you'll see 7 more hourly_weather results here ...
             ],
@@ -169,6 +167,40 @@ Example results:
                     "source_link": "https://unsplash.com/?utm_source=road_tripper&utm_medium=referral"
                 }
             }
+        }
+    }
+}
+```
+
+### `POST /api/v1/users`
+
+Required parameters:
+
+- `email`: (string) - user email, must be unique
+- `password`: (string) - user password
+- `password_confirmation`: (string) - user password confirmation must match the password field
+
+Example:
+`{
+  "email": "whatever@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add ???
+
+Example results:
+
+```
+{
+    "data": {
+        "id": "3",
+        "type": "users",
+        "attributes": {
+            "email": "whatever@example.com",
+            "api_key": "e28ab574-8cd0-45cd-9b5d-39bb263e1f14"
         }
     }
 }

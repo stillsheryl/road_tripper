@@ -1,12 +1,16 @@
 require 'rails_helper'
 
-describe "Forecast API" do
+describe "Forecast API endpoint" do
   it "sends the forecast JSON data for the given city" do
+    headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
     params = {
       location: "denver,co"
     }
 
-    get "/api/v1/forecast", params: params
+    get "/api/v1/forecast", headers: headers, params: params
 
     expect(response.status).to eq(200)
 
