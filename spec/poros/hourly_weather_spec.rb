@@ -29,7 +29,6 @@ describe HourlyWeather, type: :poros do
     expect(@hourly_weather.wind_direction).to eq("from W")
     expect(@hourly_weather.conditions).to eq('clear sky')
     expect(@hourly_weather.icon).to eq('01n')
-    expect(@hourly_weather.id).to eq(nil)
   end
 
   describe 'instance methods' do

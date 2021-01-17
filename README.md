@@ -115,8 +115,7 @@ Example results:
                     "max_temp": 38.620000000000005,
                     "min_temp": 33.03000000000003,
                     "conditions": "clear sky",
-                    "icon": "01d",
-                    "id": null
+                    "icon": "01d"
                 },
                 ... you'll see 4 more daily_weather results here ...
             ],
@@ -127,8 +126,7 @@ Example results:
                     "wind_speed": "2.59 mph",
                     "wind_direction": "from SE",
                     "conditions": "clear sky",
-                    "icon": "01d",
-                    "id": null
+                    "icon": "01d"
                 },
                   ... you'll see 7 more hourly_weather results here ...
             ],

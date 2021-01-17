@@ -5,8 +5,7 @@ class DailyWeather
               :max_temp,
               :min_temp,
               :conditions,
-              :icon,
-              :id
+              :icon
 
   def initialize(weather_data)
     @date = Date.strptime(weather_data[:dt].to_s,'%s').strftime("%Y/%m/%d")
@@ -16,7 +15,6 @@ class DailyWeather
     @min_temp = fahrenheit(weather_data[:temp][:min])
     @conditions = weather_data[:weather].first[:description]
     @icon = weather_data[:weather].first[:icon]
-    @id = nil
   end
 
   def fahrenheit(temp)

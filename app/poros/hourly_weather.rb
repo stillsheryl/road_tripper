@@ -4,8 +4,7 @@ class HourlyWeather
               :wind_speed,
               :wind_direction,
               :conditions,
-              :icon,
-              :id
+              :icon
 
   def initialize(weather_data)
     @time = Date.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
@@ -14,7 +13,6 @@ class HourlyWeather
     @wind_direction = "from #{wind_direction_from_integer(weather_data[:wind_deg])}"
     @conditions = weather_data[:weather].first[:description]
     @icon = weather_data[:weather].first[:icon]
-    @id = nil
   end
 
   def wind_direction_from_integer(integer)
