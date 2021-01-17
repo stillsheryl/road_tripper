@@ -238,6 +238,45 @@ Example results:
 }
 ```
 
+### `POST /api/v1/road_trip`
+
+Required parameters:
+
+- `origin`: (string) - origin city for trip in `<City>, <State Abbreviation>` format
+- `destination`: (string) - destination city for trip in `<City>, <State Abbreviation>` format
+- `api_key`: (string) - user api_key
+
+Example:
+`{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "longspecialcodehere"
+  }`
+
+* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
+* In the url bar or in [Postman](https://www.postman.com/), add ???
+
+Example results:
+
+```
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver,CO",
+            "end_city": "Pueblo,CO",
+            "travel_time": "01:44",
+            "weather_at_eta": {
+                "temperature": 37.610000000000014,
+                "conditions": "scattered clouds"
+            }
+        }
+    }
+}
+```
+
 **Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
 
 ## Versioning
