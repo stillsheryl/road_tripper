@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Background API" do
+describe "Background API endpoint" do
   it "sends the image JSON data for the given city" do
     params = {
       location: "denver,co"
