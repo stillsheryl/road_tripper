@@ -15,7 +15,7 @@ describe "Road Trip API endpoint" do
 
     post "/api/v1/road_trip", headers: headers, params: params.to_json
 
-    expect(response.status).to eq(200)
+    expect(response.status).to eq(201)
 
     roadtrip = JSON.parse(response.body, symbolize_names: true)
 
@@ -25,7 +25,7 @@ describe "Road Trip API endpoint" do
     expect(roadtrip[:data]).to have_key(:type)
     expect(roadtrip[:data][:type]).to eq("roadtrip")
     expect(roadtrip[:data]).to have_key(:id)
-    expect(roadtrip[:data][:id]).to be_a(String)
+    expect(roadtrip[:data][:id]).to eq(nil)
     expect(roadtrip[:data]).to have_key(:attributes)
     expect(roadtrip[:data][:attributes]).to be_a(Hash)
 

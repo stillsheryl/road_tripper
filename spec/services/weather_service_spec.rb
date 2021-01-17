@@ -100,4 +100,30 @@ describe "Weather Service" do
     expect(weather).to have_key(:error)
     expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
   end
+
+  it "sends the hourly forecast for the given city when given lat/long params" do
+    params = {
+      lat: "33",
+      long: "-94"
+    }
+    weather = WeatherService.hourly_weather(params)
+
+    expect(weather).to be_a(Hash)
+    expect(weather).to have_key(:lat)
+    expect(weather[:lat]).to be_an(Integer)
+    expect(weather).to have_key(:lon)
+    expect(weather[:lon]).to be_an(Integer)
+    expect(weather).to have_key(:hourly)
+    expect(weather[:hourly]).to be_an(Array)
+
+    hourly_weather = weather[:hourly].first
+
+    expect(hourly_weather).to be_a(Hash)
+    expect(hourly_weather).to have_key(:temp)
+    expect(hourly_weather[:temp]).to be_a(Float)
+    expect(hourly_weather).to have_key(:weather)
+    expect(hourly_weather[:weather]).to be_an(Array)
+    expect(hourly_weather[:weather].first).to have_key(:description)
+    expect(hourly_weather[:weather].first[:description]).to be_a(String)
+  end
 end
