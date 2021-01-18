@@ -26,13 +26,50 @@ describe "Geocoding Service" do
     expect(coordinates[:locations].first[:latLng][:lng]).to be_a(Float)
   end
 
-  xit "returns an error if not a valid city" do
+  it "returns an error if not a valid city" do
     params = {
       location: "geocolgical, co"
     }
-    results = GeocodingService.get_coordinates(params[:location])
+    response = GeocodingService.get_coordinates(params[:location])
 
-    expect(results).to be_a(Hash)
-    expect(results).to have_key(:error)
+    expect(response).to be_a(Hash)
+    expect(response[:message]).to eq("Unknown Location: geocolgical, co")
+    expect(response[:status]).to eq(400)
+  end
+
+  it "returns an error if not a valid city" do
+    params = {
+      location: "hfysavew"
+    }
+
+    response = GeocodingService.get_coordinates(params[:location])
+
+    expect(response).to be_a(Hash)
+    expect(response[:message]).to eq("Unknown Location: hfysavew")
+    expect(response[:status]).to eq(400)
+  end
+
+  it "returns an error if symbols entered and not a valid city" do
+    params = {
+      location: "$^*&$"
+    }
+
+    response = GeocodingService.get_coordinates(params[:location])
+
+    expect(response).to be_a(Hash)
+    expect(response[:message]).to eq("Unknown Location: $^*&$")
+    expect(response[:status]).to eq(400)
+  end
+
+  it "returns an error if user doesn't input a city" do
+    params = {
+      location: ""
+    }
+
+    response = GeocodingService.get_coordinates(params[:location])
+
+    expect(response).to be_a(Hash)
+    expect(response[:message]).to eq("Unknown Location: ")
+    expect(response[:status]).to eq(400)
   end
 end
