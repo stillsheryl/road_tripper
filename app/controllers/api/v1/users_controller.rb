@@ -3,8 +3,6 @@ require 'securerandom'
 class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params) do |user|
-      user.email = user_params[:email]
-      user.password_digest = BCrypt::Password.create(user_params[:password]).to_s
       user.api_key = SecureRandom.uuid
     end
 

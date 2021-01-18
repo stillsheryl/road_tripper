@@ -11,12 +11,12 @@ describe "User Login API endpoint" do
   end
 
   it "when a user provides a valid email and password, their user information is returned, including an API key" do
-    @params = {
+    params = {
       "email": "whatever@example.com",
-      "password": "password",
+      "password": "password"
     }
 
-    post "/api/v1/sessions", headers: @headers, params: @params.to_json
+    post "/api/v1/sessions", headers: @headers, params: params.to_json
 
     expect(response.status).to eq(200)
 
@@ -40,7 +40,7 @@ describe "User Login API endpoint" do
   it "when a user provides an invalid email an error is received" do
     @params = {
       "email": "whatever111@example.com",
-      "password": "password",
+      "password": "password"
     }
 
     post "/api/v1/sessions", headers: @headers, params: @params.to_json
@@ -57,7 +57,7 @@ describe "User Login API endpoint" do
   it "when a user provides an incorrect password an error is received" do
     @params = {
       "email": "whatever@example.com",
-      "password": "wrongpassword",
+      "password": "wrongpassword"
     }
 
     post "/api/v1/sessions", headers: @headers, params: @params.to_json
@@ -74,7 +74,7 @@ describe "User Login API endpoint" do
   it "when a user skips a field an error is received" do
     @params = {
       "email": "",
-      "password": "password",
+      "password": "password"
     }
 
     post "/api/v1/sessions", headers: @headers, params: @params.to_json
