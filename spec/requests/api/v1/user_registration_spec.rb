@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 describe "User Registration API endpoint" do
-  it "when a user provides an email and password, their user information is returned, including an API key" do
-    headers = {
+  before :each do
+    @headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
     }
+  end
+  it "when a user provides an email and password, their user information is returned, including an API key" do
     params = {
       "email": "whatever@example.com",
       "password": "password",
       "password_confirmation":"password"
-      }
+    }
 
-    post "/api/v1/users", headers: headers, params: params.to_json
+    post "/api/v1/users", headers: @headers, params: params.to_json
 
     expect(response.status).to eq(201)
 
@@ -35,12 +37,12 @@ describe "User Registration API endpoint" do
 
   it "returns an error if passwords don't match" do
     params = {
-      email: "whatever@example.com",
-      password: "password",
-      password_confirmation: "password1"
+      "email": "whatever1@example.com",
+      "password": "password",
+      "password_confirmation": "password1"
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/users", headers: @headers, params: params.to_json
 
     expect(response.status).to eq(400)
 
@@ -60,12 +62,27 @@ describe "User Registration API endpoint" do
       password_confirmation: "password"
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/users", headers: @headers, params: params.to_json
 
     expect(response.status).to eq(400)
 
     user = JSON.parse(response.body, symbolize_names: true)
 
+    expect(user).to be_a(Hash)
+    expect(user[:error]).to eq("Email has already been taken")
+    expect(user[:status]).to eq(400)
+  end
+
+  it "returns an error if email is not unique checking upper and lower case" do
+    user1 = User.create!(email: "Whatever@example.com", password: "sneaky_password", api_key: "longspecialcodehere")
+    params = {
+      email: "whatever@example.com",
+      password: "password",
+      password_confirmation: "password"
+    }
+    post "/api/v1/users", headers: @headers, params: params.to_json
+    expect(response.status).to eq(400)
+    user = JSON.parse(response.body, symbolize_names: true)
     expect(user).to be_a(Hash)
     expect(user[:error]).to eq("Email has already been taken")
     expect(user[:status]).to eq(400)
@@ -78,7 +95,7 @@ describe "User Registration API endpoint" do
       password_confirmation: "password"
     }
 
-    post "/api/v1/users", params: params
+    post "/api/v1/users", headers: @headers, params: params.to_json
 
     expect(response.status).to eq(400)
 
