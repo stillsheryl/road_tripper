@@ -14,11 +14,11 @@ class Api::V1::RoadTripController < ApplicationController
       render json: output, status: :created
     else
       error_message = {
-        error: 'Unauthorized User. Please login to plan a trip.',
+        error: 'A valid API key is required.',
         status: 401
       }
 
-      render json: error_message, status: :unauthorized_user
+      render json: error_message, status: 401
     end
   end
 end
