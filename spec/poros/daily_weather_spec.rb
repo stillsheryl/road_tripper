@@ -25,8 +25,8 @@ describe DailyWeather, type: :poros do
   it 'can create a DailyWeather object' do
     expect(@daily_weather).to be_an_instance_of(DailyWeather)
     expect(@daily_weather.date).to eq("2021/01/15")
-    expect(@daily_weather.sunrise).to eq('2021/01/15 13:18:48')
-    expect(@daily_weather.sunset).to eq('2021/01/15 23:31:51')
+    expect(@daily_weather.sunrise).to eq('2021/01/15 13:18:48 +0000')
+    expect(@daily_weather.sunset).to eq('2021/01/15 23:31:51 +0000')
     expect(@daily_weather.max_temp).to eq(42.160000000000025)
     expect(@daily_weather.min_temp).to eq(35.79000000000002)
     expect(@daily_weather.conditions).to eq('clear sky')

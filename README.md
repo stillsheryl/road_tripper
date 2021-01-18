@@ -96,9 +96,9 @@ Example result:
         "type": "forecast",
         "attributes": {
             "current_weather": {
-                "datetime": "2021/01/16 23:16:44",
-                "sunrise": "2021/01/16 14:18:33",
-                "sunset": "2021/01/17  0:00:41",
+                "datetime": "2021/01/16 23:16:44 +0000",
+                "sunrise": "2021/01/16 14:18:33 +0000",
+                "sunset": "2021/01/17  0:00:41 +0000",
                 "temperature": 37.75,
                 "feels_like": 34.77000000000004,
                 "humidity": 44,
@@ -110,8 +110,8 @@ Example result:
             "daily_weather": [
                 {
                     "date": "2021/01/16",
-                    "sunrise": "2021/01/16 14:18:33",
-                    "sunset": "2021/01/17  0:00:41",
+                    "sunrise": "2021/01/16 14:18:33 +0000",
+                    "sunset": "2021/01/17  0:00:41 +0000",
                     "max_temp": 38.620000000000005,
                     "min_temp": 33.03000000000003,
                     "conditions": "clear sky",

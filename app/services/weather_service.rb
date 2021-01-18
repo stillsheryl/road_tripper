@@ -15,21 +15,22 @@ class WeatherService
 
       JSON.parse(response.body, symbolize_names: true)
     else
-      {
-        error: 'Please provide valid latitude and longitude values.',
-        status: 400
-      }
+      { error: 'Please provide valid latitude and longitude values.', status: 400 }
     end
   end
 
   def self.hourly_weather(params)
-    response = conn.get('/data/2.5/onecall') do |req|
-      req.params['lat'] = params[:lat]
-      req.params['lon'] = params[:long]
-      req.params['exclude'] = 'current,minutely,daily,alerts'
-    end
+    if check_lat_lon(params)
+      response = conn.get('/data/2.5/onecall') do |req|
+        req.params['lat'] = params[:lat]
+        req.params['lon'] = params[:long]
+        req.params['exclude'] = 'current,minutely,daily,alerts'
+      end
 
-    JSON.parse(response.body, symbolize_names: true)
+      JSON.parse(response.body, symbolize_names: true)
+    else
+      { error: 'Please provide valid latitude and longitude values.', status: 400 }
+    end
   end
 
   def self.check_lat_lon(params)
