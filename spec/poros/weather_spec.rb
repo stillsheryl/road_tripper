@@ -33,21 +33,26 @@ describe Weather, type: :poros do
     expect(@weather.hourly_weather).to be_an(Array)
     expect(@weather.hourly_weather.count).to eq(8)
     expect(@weather.hourly_weather.first).to be_an_instance_of(HourlyWeather)
+
+    hourly_weather = @weather.hourly_weather.first
+    expect(hourly_weather.conditions).to eq("clear sky")
+    expect(hourly_weather.icon).to eq("01n")
+    expect(hourly_weather.temperature).to eq(35.910000000000025)
+    expect(hourly_weather.time).to eq(" 0:00:00")
+    expect(hourly_weather.wind_direction).to eq("from W")
+    expect(hourly_weather.wind_speed).to eq("3.07 mph")
+
+    daily_weather = @weather.daily_weather.first
+    expect(daily_weather.conditions).to eq("clear sky")
+    expect(daily_weather.date).to eq("2021/01/15")
+    expect(daily_weather.icon).to eq("01d")
+    expect(daily_weather.max_temp).to eq(42.160000000000025)
+    expect(daily_weather.min_temp).to eq(35.79000000000002)
+    expect(daily_weather.sunrise).to eq("2021/01/15 13:18:48")
+    expect(daily_weather.sunset).to eq("2021/01/15 23:31:51")
   end
 
   describe 'instance methods' do
-  #   it 'current_weather_hash' do
-  #     expect(@weather.current_weather_hash(@weather_info)).to be_a(Hash)
-  #   end
-  #
-  #   it 'daily_weather_for_5_days' do
-  #     expect(@weather.daily_weather_for_5_days(@weather_info)).to be_an(Array)
-  #   end
-  #
-  #   it 'hourly_weather_for_8_hours' do
-  #     expect(@weather.hourly_weather_for_8_hours(@weather_info)).to be_an(Array)
-  #   end
-
     it 'fahrenheit' do
       temp = 271.63
       expect(@weather.fahrenheit(temp).round(1)).to eq(30.5)
