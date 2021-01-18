@@ -1,8 +1,11 @@
 class WeatherFacade
   def self.weather(params)
     weather_info = WeatherService.get_weather(params)
-
-    Weather.new(weather_info)
+    if weather_info[:status] == 400
+      weather_info
+    else
+      Weather.new(weather_info)
+    end
   end
 
   def self.weather_at_time(params, city_coordinates, driving_time)
