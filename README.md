@@ -88,7 +88,7 @@ Example:
 
 * In the url bar or in [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/forecast?location=%22denver,co%22`
 
-Example results:
+Example result:
 ```
 {
     "data": {
@@ -132,6 +132,14 @@ Example results:
             ]
         }
     }
+}
+```
+
+Example of an error message from an invalid city:
+```
+{
+    "message": "Unknown Location: hdefwght",
+    "status": 400
 }
 ```
 

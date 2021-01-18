@@ -10,16 +10,14 @@ class GeocodingService
       req.params["location"] = city
     end
 
-    body = JSON.parse(response.body, symbolize_names: true)
+    body = JSON.parse(response.body, symbolize_names: true) if response.body != ''
 
-    if invalid_input(body)
-      
-    else
+    if response.body == '' || city == ''
+      {:message => "Unknown Location: #{city}", :status => 400}
+    elsif body[:results].first[:locations].first[:geocodeQualityCode][0..1] == "A5"
       JSON.parse(response.body, symbolize_names: true)
+    else
+      {:message => "Unknown Location: #{city}", :status => 400}
     end
-  end
-
-  def self.invalid_input(body)
-    body[:results].first[:locations].first[:geocodeQualityCode] == 39.390897 && body[:results].first[:locations].first[:displayLatLng][:lng] == -99.066067
   end
 end
