@@ -47,7 +47,7 @@ describe "Background API endpoint" do
     expect(credit[:source_link]).to be_a(String)
   end
 
-  xit "sends the image JSON data for the given city" do
+  it "returns an error if invalid location provided" do
     params = {
       location: "dbwuqiCBVYWrbretr"
     }
@@ -59,5 +59,7 @@ describe "Background API endpoint" do
     image = JSON.parse(response.body, symbolize_names: true)
 
     expect(image).to be_a(Hash)
+    expect(image[:error]).to eq("Please provide a valid city for the search.")
+    expect(image[:status]).to eq(400)
   end
 end

@@ -2,8 +2,12 @@ class Api::V1::BackgroundsController < ApplicationController
   def index
     image = PhotoFacade.photo(params)
 
-    output = PhotoSerializer.new(image).to_json
+    if image.is_a? Photo
+      output = PhotoSerializer.new(image).to_json
+      render json: output
 
-    render json: output
+    else
+      render json: image, status: 400
+    end
   end
 end
