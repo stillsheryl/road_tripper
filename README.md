@@ -72,6 +72,9 @@ end
 
 * In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
 
+* Test coverage is at 100% with 54 passing tests.
+![simplecov](https://user-images.githubusercontent.com/7945439/104971567-680f1d00-59ac-11eb-99d3-afc0ba65605e.png)
+
 ## API Endpoints
 
 ### `GET /api/v1/forecast`
