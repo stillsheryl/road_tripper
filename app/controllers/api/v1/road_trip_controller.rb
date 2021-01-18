@@ -11,7 +11,7 @@ class Api::V1::RoadTripController < ApplicationController
 
       output = RoadtripSerializer.new(roadtrip).to_json
 
-      render json: output, status: :created
+      render json: output
     else
       error_message = {
         error: 'A valid API key is required.',

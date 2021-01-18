@@ -18,7 +18,7 @@ describe "Road Trip API endpoint" do
 
     post "/api/v1/road_trip", headers: @headers, params: params.to_json
 
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
 
     roadtrip = JSON.parse(response.body, symbolize_names: true)
 
@@ -82,5 +82,27 @@ describe "Road Trip API endpoint" do
     expect(roadtrip).to be_a(Hash)
     expect(roadtrip[:error]).to eq("A valid API key is required.")
     expect(roadtrip[:status]).to eq(401)
+  end
+
+  it "returns an error if invalid travel locations are given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "London, UK",
+      "api_key": "longspecialcodehere"
+      }
+
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
+
+    expect(response.status).to eq(200)
+
+    roadtrip = JSON.parse(response.body, symbolize_names: true)
+
+    attributes = roadtrip[:data][:attributes]
+
+    expect(attributes[:start_city]).to eq("Denver,CO")
+    expect(attributes[:end_city]).to eq("London, UK")
+    expect(attributes[:travel_time]).to eq("Impossible")
+    expect(attributes).to have_key(:weather_at_eta)
+    expect(attributes[:weather_at_eta]).to eq(nil)
   end
 end
