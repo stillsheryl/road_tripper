@@ -5,9 +5,9 @@ class PhotoService
     end
   end
 
-  def self.get_photo(params)
+  def self.get_photo(params, weather)
     response = conn.get('/search/photos') do |req|
-      req.params["query"] = params[:location]
+      req.params["query"] = "#{params[:location]} #{weather}"
     end
 
     JSON.parse(response.body, symbolize_names: true)

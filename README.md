@@ -179,8 +179,15 @@ Example results:
 }
 ```
 
-**Note**: Please see the [Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution) for information correctly crediting the photographer for an image.
+**Note**: Please see the **[Unsplash Attribution Guidelines](https://help.unsplash.com/en/articles/2511315-guideline-attribution)** for information correctly crediting the photographer for an image.
 
+Example of an error message from an invalid city:
+```
+{
+    "error": "Please provide a valid city for the search.",
+    "status": 400
+}
+```
 
 ### `POST /api/v1/users`
 
