@@ -304,6 +304,22 @@ Example results:
 }
 ```
 
+Example of a request for a trip that's not possible:
+```
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver,CO",
+            "end_city": "Sydney, AUS",
+            "travel_time": "Impossible",
+            "weather_at_eta": null
+        }
+    }
+}
+```
+
 ## Learning Goals
 * Expose an API that aggregates data from multiple external APIs
 * Expose an API that requires an authentication token
