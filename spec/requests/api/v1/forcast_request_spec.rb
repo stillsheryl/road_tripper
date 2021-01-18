@@ -92,9 +92,9 @@ describe "Forecast API endpoint" do
     expect(hourly_weather[:icon]).to be_a(String)
   end
 
-  xit "sends an error message if the coordinates do not exist for given city" do
+  it "sends an error message if the coordinates do not exist for given city" do
     params = {
-      location: "Hadlfoggbre"
+      location: "invalid city"
     }
 
     get "/api/v1/forecast", params: params
