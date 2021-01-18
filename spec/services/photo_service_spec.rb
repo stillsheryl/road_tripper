@@ -27,4 +27,16 @@ describe "Photo Service" do
     expect(first_photo[:user][:links]).to have_key(:html)
     expect(first_photo[:user][:links][:html]).to be_a(String)
   end
+
+  it "returns no results it invalid search location" do
+    params = {
+      location: "hfewyegheh"
+    }
+    photo = PhotoService.get_photo(params)
+
+    expect(photo).to be_a(Hash)
+    expect(photo).to have_key(:results)
+    expect(photo[:results]).to eq([])
+    expect(photo[:total]).to eq(0)
+  end
 end
