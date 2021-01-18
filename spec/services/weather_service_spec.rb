@@ -131,4 +131,18 @@ describe "Weather Service" do
     expect(weather).to_not have_key(:current)
     expect(weather).to_not have_key(:daily)
   end
+
+  it 'sends an error message if the coordinates do not exist for given city' do
+    params = {
+      lat: '500',
+      long: '-94'
+    }
+    weather = WeatherService.hourly_weather(params)
+
+    expect(weather).to be_a(Hash)
+    expect(weather).to have_key(:status)
+    expect(weather[:status]).to eq(400)
+    expect(weather).to have_key(:error)
+    expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
+  end
 end
