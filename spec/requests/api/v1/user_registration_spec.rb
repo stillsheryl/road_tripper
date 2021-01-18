@@ -76,7 +76,7 @@ describe "User Registration API endpoint" do
   it "returns an error if email is not unique checking upper and lower case" do
     user1 = User.create!(email: "Whatever@example.com", password: "sneaky_password", api_key: "longspecialcodehere")
     params = {
-      email: "whatever@example.com",
+      email: "whateveR@example.com",
       password: "password",
       password_confirmation: "password"
     }
