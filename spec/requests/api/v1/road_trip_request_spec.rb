@@ -1,21 +1,24 @@
 require 'rails_helper'
 
 describe "Road Trip API endpoint" do
-  it "returns road trip data JSON when valid input is given" do
+  before :each do
     User.create!(email: "whatever@example.com", password: "password", api_key: "longspecialcodehere")
-    headers = {
+    @headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
     }
+  end
+
+  it "returns road trip data JSON when valid input is given" do
     params = {
       "origin": "Denver,CO",
       "destination": "Pueblo,CO",
       "api_key": "longspecialcodehere"
       }
 
-    post "/api/v1/road_trip", headers: headers, params: params.to_json
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
 
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
 
     roadtrip = JSON.parse(response.body, symbolize_names: true)
 
@@ -43,5 +46,63 @@ describe "Road Trip API endpoint" do
     expect(attributes[:weather_at_eta][:temperature]).to be_a(Float)
     expect(attributes[:weather_at_eta]).to have_key(:conditions)
     expect(attributes[:weather_at_eta][:conditions]).to be_a(String)
+  end
+
+  it "returns an error if an invalid api_key is given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+      "api_key": "wrongapikey"
+      }
+
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
+
+    expect(response.status).to eq(401)
+
+    roadtrip = JSON.parse(response.body, symbolize_names: true)
+
+    expect(roadtrip).to be_a(Hash)
+    expect(roadtrip[:error]).to eq("A valid API key is required.")
+    expect(roadtrip[:status]).to eq(401)
+  end
+
+  it "returns an error if no api_key is given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+      "api_key": ""
+      }
+
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
+
+    expect(response.status).to eq(401)
+
+    roadtrip = JSON.parse(response.body, symbolize_names: true)
+
+    expect(roadtrip).to be_a(Hash)
+    expect(roadtrip[:error]).to eq("A valid API key is required.")
+    expect(roadtrip[:status]).to eq(401)
+  end
+
+  it "returns an error if invalid travel locations are given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "London, UK",
+      "api_key": "longspecialcodehere"
+      }
+
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
+
+    expect(response.status).to eq(200)
+
+    roadtrip = JSON.parse(response.body, symbolize_names: true)
+
+    attributes = roadtrip[:data][:attributes]
+
+    expect(attributes[:start_city]).to eq("Denver,CO")
+    expect(attributes[:end_city]).to eq("London, UK")
+    expect(attributes[:travel_time]).to eq("Impossible")
+    expect(attributes).to have_key(:weather_at_eta)
+    expect(attributes[:weather_at_eta]).to eq(nil)
   end
 end

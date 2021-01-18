@@ -25,4 +25,14 @@ describe "Geocoding Service" do
     expect(coordinates[:locations].first[:latLng]).to have_key(:lng)
     expect(coordinates[:locations].first[:latLng][:lng]).to be_a(Float)
   end
+
+  xit "returns an error if not a valid city" do
+    params = {
+      location: "geocolgical, co"
+    }
+    results = GeocodingService.get_coordinates(params[:location])
+
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:error)
+  end
 end

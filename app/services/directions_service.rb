@@ -11,6 +11,15 @@ class DirectionsService
       req.params["to"] = params[:destination]
     end
 
-    JSON.parse(response.body, symbolize_names: true)
+    body = JSON.parse(response.body, symbolize_names: true)
+
+    if body[:info][:statuscode] == 402
+      {
+        error: 'Impossible',
+        status: 400
+      }
+    else
+      body
+    end
   end
 end

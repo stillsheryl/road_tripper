@@ -10,6 +10,16 @@ class GeocodingService
       req.params["location"] = city
     end
 
-    JSON.parse(response.body, symbolize_names: true)
+    body = JSON.parse(response.body, symbolize_names: true)
+
+    if invalid_input(body)
+      
+    else
+      JSON.parse(response.body, symbolize_names: true)
+    end
+  end
+
+  def self.invalid_input(body)
+    body[:results].first[:locations].first[:geocodeQualityCode] == 39.390897 && body[:results].first[:locations].first[:displayLatLng][:lng] == -99.066067
   end
 end

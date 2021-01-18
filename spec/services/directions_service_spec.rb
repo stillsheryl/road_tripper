@@ -16,4 +16,19 @@ describe "Directions Service" do
     expect(results[:route]).to have_key(:formattedTime)
     expect(results[:route][:formattedTime]).to be_a(String)
   end
+
+  it "sends returns an error if trip is impossible" do
+    params = {
+      origin: "Denver,CO",
+      destination: "London, UK",
+      }
+
+    results = DirectionsService.get_directions(params)
+
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:error)
+    expect(results[:error]).to eq("Impossible")
+    expect(results).to have_key(:status)
+    expect(results[:status]).to eq(400)
+  end
 end

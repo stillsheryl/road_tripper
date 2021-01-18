@@ -38,4 +38,23 @@ describe "Weather Facade" do
     expect(results).to have_key(:end_city)
     expect(results[:end_city]).to be_a(String)
   end
+
+  it "returns nothing if not provided with valid driving time" do
+    params = {
+      origin: "Denver,CO",
+      destination: "London,UK"
+    }
+    city_coordinates = {
+      :lat=>39.738453,
+      :long=>-104.984853
+    }
+    driving_time = "Impossible"
+    results = WeatherFacade.weather_at_time(params, city_coordinates, driving_time)
+
+    expect(results[:start_city]).to eq("Denver,CO")
+    expect(results[:end_city]).to eq("London,UK")
+    expect(results[:temperature]).to eq("")
+    expect(results[:conditions]).to eq("")
+    expect(results[:travel_time]).to eq("Impossible")
+  end
 end
