@@ -13,9 +13,9 @@ class Weather
 
   def current_weather_hash(weather_data)
     {
-      datetime: DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
-      sunrise: DateTime.strptime(weather_data[:sunrise].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
-      sunset: DateTime.strptime(weather_data[:sunset].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S"),
+      datetime: DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
+      sunrise: DateTime.strptime(weather_data[:sunrise].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
+      sunset: DateTime.strptime(weather_data[:sunset].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
       temperature: fahrenheit(weather_data[:temp]),
       feels_like: fahrenheit(weather_data[:feels_like]),
       humidity: weather_data[:humidity],
