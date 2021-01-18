@@ -12,6 +12,7 @@ This is the backend of a road trip planning app will allow users to see the curr
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
   - [API Endpoint](#api-endpoints)
+  - [Learning Goals](#learning-goals)
   - [Versioning](#versioning)
   - [Authors](#authors)
   - [Acknowledgments](#acknowledgments)
@@ -206,8 +207,9 @@ Example:
 
 * In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
 
-* In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/users`, and in the body, add the hash from above. See example below:
+* In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/users` as a `POST` request, and click on the body tab under the url bar. Select JSON and add the hash from the example above.
 
+Postman example:
 ![users endpoint](https://user-images.githubusercontent.com/7945439/104968693-c8e62780-59a3-11eb-872a-e72714e0700d.png)
 
 Example results:
@@ -240,8 +242,9 @@ Example:
 
 * In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
 
-* In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/users`, and in the body, add the hash from above. See example below:
+* In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/sessions` as a `POST` request, and click on the body tab under the url bar. Select JSON and add the hash from the example above.
 
+Postman example:
 ![sessions endpoint](https://user-images.githubusercontent.com/7945439/104968711-d7344380-59a3-11eb-9d00-71acf69137df.png)
 
 Example results:
@@ -276,7 +279,10 @@ Example:
 
 * In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
 
-* In the url bar or in [Postman](https://www.postman.com/), add ???
+* In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/road_trip` as a `POST` request, and click on the body tab under the url bar. Select JSON and add the hash from the example above.
+
+Postman example:
+![road_trip endpoint](https://user-images.githubusercontent.com/7945439/104970867-31380780-59aa-11eb-9174-3879a14e4b7f.png)
 
 Example results:
 
@@ -298,6 +304,12 @@ Example results:
 }
 ```
 
+## Learning Goals
+* Expose an API that aggregates data from multiple external APIs
+* Expose an API that requires an authentication token
+* Expose an API for CRUD functionality
+* Determine completion criteria based on the needs of other developers
+* Research, select, and consume an API based on your needs as a developer
 
 ## Versioning
 
