@@ -1,6 +1,6 @@
 class PhotoFacade
-  def self.photo(params)
-    photo_info = PhotoService.get_photo(params)
+  def self.photo(params, weather)
+    photo_info = PhotoService.get_photo(params, weather)
 
     if photo_info[:total] != 0
       Photo.new(photo_info, params)

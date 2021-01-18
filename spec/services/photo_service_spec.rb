@@ -5,7 +5,8 @@ describe "Photo Service" do
     params = {
       location: "denver,co"
     }
-    photo = PhotoService.get_photo(params)
+    weather = "clear sky"
+    photo = PhotoService.get_photo(params, weather)
 
     expect(photo).to be_a(Hash)
     expect(photo).to have_key(:results)
@@ -32,7 +33,8 @@ describe "Photo Service" do
     params = {
       location: "hfewyegheh"
     }
-    photo = PhotoService.get_photo(params)
+    weather = ""
+    photo = PhotoService.get_photo(params, weather)
 
     expect(photo).to be_a(Hash)
     expect(photo).to have_key(:results)

@@ -5,7 +5,8 @@ describe "Photo Facade" do
     params = {
       location: "denver,co"
     }
-    photo = PhotoFacade.photo(params)
+    weather = "clear sky"
+    photo = PhotoFacade.photo(params, weather)
 
     expect(photo).to be_an_instance_of (Photo)
     expect(photo.image).to be_a(Hash)
@@ -29,7 +30,8 @@ describe "Photo Facade" do
     params = {
       location: "fwuehPHVUE9Wobwiovgbrqb"
     }
-    photo = PhotoFacade.photo(params)
+    weather = ""
+    photo = PhotoFacade.photo(params, weather)
 
     expect(photo).to be_a(Hash)
     expect(photo).to have_key(:status)
