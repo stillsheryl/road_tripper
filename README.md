@@ -227,7 +227,7 @@ Example results:
 
 ### `POST /api/v1/sessions`
 
-Required parameters:
+Required parameters to be sent in body as JSON:
 
 - `email`: (string) - user email, must be unique
 - `password`: (string) - user password
@@ -261,7 +261,7 @@ Example results:
 
 ### `POST /api/v1/road_trip`
 
-Required parameters:
+Required parameters to be sent in body as JSON:
 
 - `origin`: (string) - origin city for trip in `<City>, <State Abbreviation>` format
 - `destination`: (string) - destination city for trip in `<City>, <State Abbreviation>` format
