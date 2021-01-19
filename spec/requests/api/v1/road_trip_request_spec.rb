@@ -105,4 +105,30 @@ describe "Road Trip API endpoint" do
     expect(attributes).to have_key(:weather_at_eta)
     expect(attributes[:weather_at_eta]).to eq(nil)
   end
+
+  it "returns weather even if trip length is greater than 48 hours" do
+    params = {
+      "origin": "Anchorage, AK",
+      "destination": "Tijuana, MX",
+      "api_key": "longspecialcodehere"
+      }
+
+    post "/api/v1/road_trip", headers: @headers, params: params.to_json
+
+    expect(response.status).to eq(200)
+
+    roadtrip = JSON.parse(response.body, symbolize_names: true)
+
+    attributes = roadtrip[:data][:attributes]
+
+    expect(attributes[:start_city]).to eq("Anchorage, AK")
+    expect(attributes[:end_city]).to eq("Tijuana, MX")
+    expect(attributes[:travel_time]).to be_a(String)
+    expect(attributes).to have_key(:weather_at_eta)
+    expect(attributes[:weather_at_eta]).to be_a(Hash)
+    expect(attributes[:weather_at_eta]).to have_key(:temperature)
+    expect(attributes[:weather_at_eta][:temperature]).to be_a(Float)
+    expect(attributes[:weather_at_eta]).to have_key(:conditions)
+    expect(attributes[:weather_at_eta][:conditions]).to be_a(String)
+  end
 end
