@@ -39,10 +39,9 @@ class WeatherFacade
       added_hours = (travel_times[0].to_f / 3600).round
 
       trip = {}
-
       trip[:temperature] = hourly_weather[:hourly][added_hours][:temp]
       trip[:conditions] = hourly_weather[:hourly][added_hours][:weather].first[:description]
-      trip[:travel_time] = travel_times[1]
+      trip[:travel_time] = ActiveSupport::Duration.build(travel_times[0]).inspect
 
       trip
     end
