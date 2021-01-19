@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Photo Service" do
-  it "sends a photo for the given city when given city,state" do
+  it "sends a photo for the given city when given city,state", :vcr do
     params = {
       location: "denver,co"
     }
@@ -29,7 +29,7 @@ describe "Photo Service" do
     expect(first_photo[:user][:links][:html]).to be_a(String)
   end
 
-  it "returns no results it invalid search location" do
+  it "returns no results it invalid search location", :vcr do
     params = {
       location: "hfewyegheh"
     }

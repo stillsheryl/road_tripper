@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Weather Service" do
-  it "sends the forecast for the given city when given lat/long params" do
+  it "sends the forecast for the given city when given lat/long params", :vcr do
     params = {
       lat: "33",
       long: "-94"
@@ -101,7 +101,7 @@ describe "Weather Service" do
     expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
   end
 
-  it "sends the hourly forecast for the given city when given lat/long params" do
+  it "sends the hourly forecast for the given city when given lat/long params", :vcr do
     params = {
       lat: "33",
       long: "-94"
