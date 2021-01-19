@@ -5,7 +5,7 @@ class MunchiesFacade
       travel_time: weather_at_dest[:travel_time],
       forecast: {
         summary: weather_at_dest[:conditions],
-        temperature: fahrenheit(weather_at_dest[:temperature])
+        temperature: fahrenheit(weather_at_dest[:temperature]).round
       },
       restaurant: {
         name: restaurant.name,
