@@ -31,4 +31,22 @@ describe "Directions Service" do
     expect(results).to have_key(:status)
     expect(results[:status]).to eq(400)
   end
+
+  it "sends travel directions for the to city to the from city" do
+    params = {
+      start: "Denver,CO",
+      end: "Pueblo,CO"
+      }
+
+    results = DirectionsService.get_directions_start_end(params)
+
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:route)
+    expect(results[:route]).to be_a(Hash)
+
+    expect(results[:route]).to have_key(:formattedTime)
+    expect(results[:route][:formattedTime]).to be_a(String)
+    expect(results[:route]).to have_key(:realTime)
+    expect(results[:route][:realTime]).to be_an(Integer)
+  end
 end
