@@ -92,4 +92,21 @@ describe "Weather Facade" do
     expect(results[:conditions]).to eq("")
     expect(results[:travel_time]).to eq("Impossible")
   end
+
+  it "returns weather at a specific destination at a specific time" do
+    city_coordinates = {
+      :lat=>38.2654,
+      :long=>-104.6104
+    }
+    travel_times = [6698, "01:44"]
+    results = WeatherFacade.weather_at_destination(city_coordinates, travel_times)
+
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:temperature)
+    expect(results[:temperature]).to be_a(Float)
+    expect(results).to have_key(:conditions)
+    expect(results[:conditions]).to be_a(String)
+    expect(results).to have_key(:travel_time)
+    expect(results[:travel_time]).to be_a(String)
+  end
 end

@@ -32,4 +32,18 @@ class WeatherFacade
       trip
     end
   end
+
+    def self.weather_at_destination(city_coordinates, travel_times)
+      hourly_weather = WeatherService.hourly_weather(city_coordinates)
+
+      added_hours = (travel_times[0].to_f / 3600).round
+
+      trip = {}
+
+      trip[:temperature] = hourly_weather[:hourly][added_hours][:temp]
+      trip[:conditions] = hourly_weather[:hourly][added_hours][:weather].first[:description]
+      trip[:travel_time] = travel_times[1]
+
+      trip
+    end
 end
