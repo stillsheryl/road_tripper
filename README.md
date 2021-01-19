@@ -68,6 +68,11 @@ group :test do
 end
 ```
 
+### Database Schema
+
+- The database contains a single table which holds user data:
+![road_trippper_db](https://user-images.githubusercontent.com/7945439/105105951-5e4fed00-5a72-11eb-8fe3-6bdd04d80d3a.png)
+
 ## Running the tests
 
 * For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code. I also used Webmock and VCR to cut down on calls to the 3 API's used and speed up test time.
