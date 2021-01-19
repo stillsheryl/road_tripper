@@ -15,7 +15,7 @@ class Api::V1::MunchiesController <ApplicationController
     city_coordinates = GeocodingFacade.coordinates(params[:end])
 
     weather_at_dest = WeatherFacade.weather_at_destination(city_coordinates, travel_times)
-require "pry"; binding.pry
+
     munchies = MunchiesFacade.compile_data(params, weather_at_dest, restaurant)
 
     data = MunchiesSerializer.new(munchies).to_json
@@ -23,10 +23,3 @@ require "pry"; binding.pry
     render json: data
   end
 end
-
-
-
-# the destination city
-# estimated travel time from start city to destination city
-# the name and address of a restaurant serving THE SPECIFIED TYPE of cuisine that WILL BE OPEN at your estimated time of arrival.
-# the current forecast of the destination city
