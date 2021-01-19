@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Directions Service" do
-  it "sends travel directions for the to city to the from city" do
+  it "sends travel directions for the to city to the from city", :vcr do
     params = {
       origin: "Denver,CO",
       destination: "Pueblo,CO",
@@ -17,7 +17,7 @@ describe "Directions Service" do
     expect(results[:route][:formattedTime]).to be_a(String)
   end
 
-  it "sends returns an error if trip is impossible" do
+  it "sends returns an error if trip is impossible", :vcr do
     params = {
       origin: "Denver,CO",
       destination: "London, UK",

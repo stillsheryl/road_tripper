@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Geocoding Service" do
-  it "sends the lattitude and longitude for the given city" do
+  it "sends the lattitude and longitude for the given city", :vcr do
     params = {
       location: "denver,co"
     }
@@ -26,7 +26,7 @@ describe "Geocoding Service" do
     expect(coordinates[:locations].first[:latLng][:lng]).to be_a(Float)
   end
 
-  it "returns an error if not a valid city" do
+  it "returns an error if not a valid city with a state", :vcr do
     params = {
       location: "geocolgical, co"
     }
@@ -37,7 +37,7 @@ describe "Geocoding Service" do
     expect(response[:status]).to eq(400)
   end
 
-  it "returns an error if not a valid city" do
+  it "returns an error if not a valid city and is gibberish", :vcr do
     params = {
       location: "hfysavew"
     }
@@ -49,7 +49,7 @@ describe "Geocoding Service" do
     expect(response[:status]).to eq(400)
   end
 
-  it "returns an error if symbols entered and not a valid city" do
+  it "returns an error if symbols entered and not a valid city", :vcr do
     params = {
       location: "$^*&$"
     }
@@ -61,7 +61,7 @@ describe "Geocoding Service" do
     expect(response[:status]).to eq(400)
   end
 
-  it "returns an error if user doesn't input a city" do
+  it "returns an error if user doesn't input a city", :vcr do
     params = {
       location: ""
     }
