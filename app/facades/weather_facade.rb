@@ -21,15 +21,22 @@ class WeatherFacade
       trip
 
     else
-      hourly_weather = WeatherService.hourly_weather(city_coordinates)
-
       hours = (driving_time[0].to_f / 3600).round
 
-      trip[:temperature] = hourly_weather[:hourly][hours][:temp]
-      trip[:conditions] = hourly_weather[:hourly][hours][:weather].first[:description]
-      trip[:travel_time] = driving_time[1]
+      if hours <= 48
+        hourly_weather = WeatherService.hourly_weather(city_coordinates)
+        trip[:temperature] = hourly_weather[:hourly][hours][:temp]
+        trip[:conditions] = hourly_weather[:hourly][hours][:weather].first[:description]
+        trip[:travel_time] = driving_time[1]
 
-      trip
+      else
+        day = hours / 24
+        daily_weather = WeatherService.get_weather(city_coordinates)
+        trip[:temperature] = daily_weather[:daily][day][:temp][:day]
+        trip[:conditions] = daily_weather[:daily][day][:weather].first[:description]
+        trip[:travel_time] = driving_time[1]
+      end
     end
+    trip
   end
 end
