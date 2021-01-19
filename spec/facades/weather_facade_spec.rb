@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Weather Facade" do
-  it "retrieves the weather for the given city" do
+  it "retrieves the weather for the given city", :vcr do
     params = {
       :lat=>39.738453,
       :long=>-104.984853
@@ -30,7 +30,7 @@ describe "Weather Facade" do
     expect(results[:error]).to eq('Please provide valid latitude and longitude values.')
   end
 
-  it "creates a hash with trip information" do
+  it "creates a hash with trip information", :vcr do
     params = {
       origin: "Denver,CO",
       destination: "Pueblo,CO"

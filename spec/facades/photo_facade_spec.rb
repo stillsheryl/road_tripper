@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Photo Facade" do
-  it "retrieves an image for the given city" do
+  it "retrieves an image for the given city", :vcr do
     params = {
       location: "denver,co"
     }
@@ -26,7 +26,7 @@ describe "Photo Facade" do
     expect(credit[:source_link]).to be_a(String)
   end
 
-  it "sends an error when no matches for a city,state search" do
+  it "sends an error when no matches for a city,state search", :vcr do
     params = {
       location: "fwuehPHVUE9Wobwiovgbrqb"
     }
