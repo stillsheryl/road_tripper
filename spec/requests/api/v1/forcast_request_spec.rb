@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Forecast API endpoint" do
-  it "sends the forecast JSON data for the given city" do
+  it "sends the forecast JSON data for the given city", :vcr do
     headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
@@ -92,7 +92,7 @@ describe "Forecast API endpoint" do
     expect(hourly_weather[:icon]).to be_a(String)
   end
 
-  it "sends an error message if the coordinates do not exist for given city" do
+  it "sends an error message if the coordinates do not exist for given city", :vcr do
     params = {
       location: "invalid city"
     }

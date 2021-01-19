@@ -72,3 +72,13 @@ RSpec.configure do |config|
     end
   end
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<WEATHER_API_KEY>') { ENV['WEATHER_API_KEY'] }
+  config.filter_sensitive_data('<GEOCODING_API_KEY>') { ENV['GEOCODING_API_KEY'] }
+  config.filter_sensitive_data('<PHOTO_API_KEY>') { ENV['PHOTO_API_KEY'] }
+  config.filter_sensitive_data('<YELP_API_KEY>') { ENV['YELP_API_KEY'] }
+  config.configure_rspec_metadata!
+end

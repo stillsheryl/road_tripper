@@ -63,17 +63,27 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov'
+  gem 'webmock'
+  gem 'vcr'
 end
 ```
 
+### Database Schema
+
+- The database contains a single table which holds user data:
+![road_trippper_db](https://user-images.githubusercontent.com/7945439/105105951-5e4fed00-5a72-11eb-8fe3-6bdd04d80d3a.png)
+
 ## Running the tests
 
-* For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code.
+* For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code. I also used Webmock and VCR to cut down on calls to the 3 API's used and speed up test time.
 
 * In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
 
-* Test coverage is at 100% with 55 passing tests.
+* Test coverage is at 100% with 55 passing tests. Before VCR it took 8 seconds for tests to run:
 ![Screen Shot 2021-01-19 at 3 11 15 PM](https://user-images.githubusercontent.com/7945439/105099252-9c481380-5a68-11eb-9338-354521fdcc62.png)
+
+After VCR it takes less than 1 second to run the tests:
+![simplecov_with_vcr](https://user-images.githubusercontent.com/7945439/105105354-2f854700-5a71-11eb-998f-ab930d2341ea.png)
 
 ## API Endpoints
 

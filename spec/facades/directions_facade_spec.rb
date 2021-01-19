@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Directions Facade" do
-  it "retrieves time for the trip in two formats" do
+  it "retrieves time for the trip in two formats", :vcr do
     params = {
       origin: "Denver,CO",
       destination: "Pueblo,CO"
@@ -13,7 +13,7 @@ describe "Directions Facade" do
     expect(times[1]).to be_a(String)
   end
 
-  it "gives an error if invalid cities are provided" do
+  it "gives an error if invalid cities are provided", :vcr do
     params = {
       origin: "Denver,CO",
       destination: "Lodon, UK"

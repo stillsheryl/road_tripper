@@ -9,7 +9,7 @@ describe "Road Trip API endpoint" do
     }
   end
 
-  it "returns road trip data JSON when valid input is given" do
+  it "returns road trip data JSON when valid input is given", :vcr do
     params = {
       "origin": "Denver,CO",
       "destination": "Pueblo,CO",
@@ -84,7 +84,7 @@ describe "Road Trip API endpoint" do
     expect(roadtrip[:status]).to eq(401)
   end
 
-  it "returns an error if invalid travel locations are given" do
+  it "returns an error if invalid travel locations are given", :vcr do
     params = {
       "origin": "Denver,CO",
       "destination": "London, UK",
@@ -106,7 +106,7 @@ describe "Road Trip API endpoint" do
     expect(attributes[:weather_at_eta]).to eq(nil)
   end
 
-  it "returns weather even if trip length is greater than 48 hours" do
+  it "returns weather even if trip length is greater than 48 hours", :vcr do
     params = {
       "origin": "Anchorage, AK",
       "destination": "Tijuana, MX",

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Geocoding Facade" do
-  it "retrieves the lattitude and longitude for the given city" do
+  it "retrieves the lattitude and longitude for the given city", :vcr do
     params = {
       location: "denver,co"
     }
@@ -12,7 +12,7 @@ describe "Geocoding Facade" do
     expect(results[:long]).to be_a(Float)
   end
 
-  it "returns an error if an invalid city" do
+  it "returns an error if an invalid city", :vcr do
     params = {
       location: "hfysavew"
     }
