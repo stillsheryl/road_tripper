@@ -22,4 +22,22 @@ class DirectionsService
       body
     end
   end
+
+  def self.get_directions_start_end(params)
+    response = conn.get('/directions/v2/route') do |req|
+      req.params["from"] = params[:start]
+      req.params["to"] = params[:end]
+    end
+
+    body = JSON.parse(response.body, symbolize_names: true)
+
+    if body[:info][:statuscode] == 402
+      {
+        error: 'Impossible',
+        status: 400
+      }
+    else
+      body
+    end
+  end
 end
