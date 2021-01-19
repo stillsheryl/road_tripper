@@ -7,6 +7,6 @@ class MunchiesSerializer
   attributes :destination_city,
              :travel_time,
              :forecast,
-             :restaurant,
+             :restaurant
              :id
 end

@@ -22,24 +22,5 @@ describe "Munchies Facade" do
     info = MunchiesFacade.compile_data(params, weather_at_dest, restaurant)
 
     expect(info).to be_a(Munchie)
-    # expect(info).to be_a(Hash)
-    # expect(info).to have_key(:destination_city)
-    # expect(info[:destination_city]).to be_a(String)
-    # expect(info).to have_key(:travel_time)
-    # expect(info[:travel_time]).to be_a(String)
-    #
-    # expect(info).to have_key(:forecast)
-    # expect(info[:forecast]).to be_a(Hash)
-    # expect(info[:forecast]).to have_key(:summary)
-    # expect(info[:forecast][:summary]).to be_a(String)
-    # expect(info[:forecast]).to have_key(:temperature)
-    # expect(info[:forecast][:temperature]).to be_a(Numeric)
-    #
-    # expect(info).to have_key(:restaurant)
-    # expect(info[:restaurant]).to be_a(Hash)
-    # expect(info[:restaurant]).to have_key(:name)
-    # expect(info[:restaurant][:name]).to be_a(String)
-    # expect(info[:restaurant]).to have_key(:address)
-    # expect(info[:restaurant][:address]).to be_a(String)
   end
 end
