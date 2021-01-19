@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Background API endpoint" do
-  it "sends the image JSON data for the given city" do
+  it "sends the image JSON data for the given city", :vcr do
     headers = {
       "Content-Type": "application/json",
       "Accept": "application/json"
@@ -47,7 +47,7 @@ describe "Background API endpoint" do
     expect(credit[:source_link]).to be_a(String)
   end
 
-  it "returns an error if invalid location provided" do
+  it "returns an error if invalid location provided", :vcr do
     params = {
       location: "dbwuqiCBVYWrbretr"
     }
