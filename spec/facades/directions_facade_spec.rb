@@ -22,4 +22,16 @@ describe "Directions Facade" do
 
     expect(times).to eq("Impossible")
   end
+
+  it "retrieves time for the trip in two formats when given to and from as params" do
+    params = {
+      start: "Denver,CO",
+      end: "Pueblo,CO"
+    }
+    times = DirectionsFacade.directions_time_start_end(params)
+
+    expect(times).to be_an(Array)
+    expect(times[0]).to be_an(Integer)
+    expect(times[1]).to be_a(String)
+  end
 end

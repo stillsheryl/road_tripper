@@ -17,6 +17,5 @@ class DirectionsFacade
     else
       [times[:route][:realTime], times[:route][:formattedTime][0..4]]
     end
-
   end
 end
