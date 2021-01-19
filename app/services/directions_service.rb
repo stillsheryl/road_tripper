@@ -13,11 +13,10 @@ class DirectionsService
 
     body = JSON.parse(response.body, symbolize_names: true)
 
-    if body[:info][:statuscode] == 402
-      {
-        error: 'Impossible',
-        status: 400
-      }
+    impossible_error_codes = [601, 602, 603, 610, 402]
+
+    if impossible_error_codes.include?(body[:info][:statuscode]) || body[:route][:realTime] == 10000000
+      { error: 'Impossible', status: 400 }
     else
       body
     end
