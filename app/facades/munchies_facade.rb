@@ -12,6 +12,7 @@ class MunchiesFacade
         address: restaurant.address
       }
     }
+    Munchie.new(info)
   end
 
   def self.fahrenheit(temp)

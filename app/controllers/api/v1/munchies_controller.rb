@@ -1,3 +1,5 @@
+require 'time'
+
 class Api::V1::MunchiesController <ApplicationController
   def index
     travel_times = DirectionsFacade.directions_time_start_end(params)
@@ -6,21 +8,19 @@ class Api::V1::MunchiesController <ApplicationController
 
     arrival_time = Time.now + hours.hours
 
-    DateTime.strptime(arrival_time.to_s,'%s')
+    arrival_time_sec = arrival_time.to_i
 
-    conn = Faraday.new(url: 'https://api.yelp.com') do |f|
-      f.headers["Authorization"] = "Bearer #{ENV['YELP_API_KEY']}"
-    end
+    restaurant = RestaurantFacade.get_restaurant(params, arrival_time_sec)
 
-    response = conn.get('/v3/businesses/search') do |f|
-      f.params["location"] = params[:end]
-      f.params['open_at'] = arrival_time.to_i
-      f.params['categories'] = params[:food]
-    end
+    city_coordinates = GeocodingFacade.coordinates(params[:end])
 
-    restaurants = JSON.parse(response.body, symbolize_names: true)
+    weather_at_dest = WeatherFacade.weather_at_destination(city_coordinates, travel_times)
+require "pry"; binding.pry
+    munchies = MunchiesFacade.compile_data(params, weather_at_dest, restaurant)
 
-    
+    data = MunchiesSerializer.new(munchies).to_json
+
+    render json: data
   end
 end
 
