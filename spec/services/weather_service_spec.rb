@@ -145,4 +145,24 @@ describe "Weather Service" do
     expect(weather).to have_key(:error)
     expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
   end
+
+  it 'returns false if the coordinates do not exist for given city' do
+    params = {
+      lat: '500',
+      long: '-94'
+    }
+    weather = WeatherService.check_lat_lon(params)
+
+    expect(weather).to eq(false)
+  end
+
+  it 'returns true if the coordinates do not exist for given city' do
+    params = {
+      lat: "93",
+      long: "-140"
+    }
+    weather = WeatherService.check_lat_lon(params)
+
+    expect(weather).to eq(false)
+  end
 end
