@@ -71,6 +71,7 @@ end
 ### Database Schema
 
 - The database contains a single table which holds user data:
+
 ![user_table](https://user-images.githubusercontent.com/7945439/105191053-e1fdee00-5af3-11eb-920a-e99de6c900eb.png)
 
 
