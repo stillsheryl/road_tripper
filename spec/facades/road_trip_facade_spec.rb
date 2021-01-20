@@ -18,4 +18,17 @@ describe 'RoadTrip Facade' do
     expect(roadtrip.weather_at_eta).to have_key(:conditions)
     expect(roadtrip.weather_at_eta[:conditions]).to be_a(String)
   end
+
+  it 'returns an error if invalid city is given', :vcr do
+    params = {
+      origin: 'Denver,CO',
+      destination: 'Invalid City,CO'
+    }
+    roadtrip = RoadTripFacade.roadtrip_data(params)
+
+    expect(roadtrip).to be_a(Roadtrip)
+    expect(roadtrip.start_city).to eq('Denver,CO')
+    expect(roadtrip.end_city).to eq('Invalid City,CO')
+    expect(roadtrip.travel_time).to eq('Impossible')
+  end
 end
