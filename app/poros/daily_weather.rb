@@ -1,4 +1,5 @@
 class DailyWeather
+  include TempConverter
   attr_reader :date,
               :sunrise,
               :sunset,
@@ -15,9 +16,5 @@ class DailyWeather
     @min_temp = fahrenheit(weather_data[:temp][:min])
     @conditions = weather_data[:weather].first[:description]
     @icon = weather_data[:weather].first[:icon]
-  end
-
-  def fahrenheit(temp)
-    (temp - 273.15) * (9 / 5) + 32
   end
 end
