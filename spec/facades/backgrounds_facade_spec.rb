@@ -29,5 +29,23 @@ describe "Backgrounds Facade" do
     weather = BackgroundsFacade.get_weather(coordinates)
 
     expect(weather).to be_a(Hash)
+    expect(weather).to have_key(:current)
+    expect(weather).to have_key(:hourly)
+    expect(weather).to have_key(:daily)
+  end
+
+  it "retrieves photo with weather and search location", :vcr do
+    weather_data = File.read('spec/fixtures/weather_data.json')
+    weather_info = JSON.parse(weather_data, symbolize_names: true)
+    params = {
+      location: "denver, co"
+    }
+
+    photo = BackgroundsFacade.get_photo_info(weather_info, params)
+
+    expect(photo).to be_a(Hash)
+    expect(photo).to have_key(:results)
+    expect(photo[:results]).to be_an(Array)
+    expect(photo[:results].first).to have_key(:urls)
   end
 end
