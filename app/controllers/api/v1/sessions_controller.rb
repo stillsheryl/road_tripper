@@ -10,10 +10,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: user_data
 
     else
-      error_message = {
-        error: "You have entered an invalid email or password. Please try again.",
-        status: 400
-      }
+      error_message = { error: "Invalid email or password. Please try again.", status: 400 }
 
       render json: error_message, status: :bad_request
     end
