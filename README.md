@@ -73,6 +73,7 @@ end
 - The database contains a single table which holds user data:
 ![user_table](https://user-images.githubusercontent.com/7945439/105191053-e1fdee00-5af3-11eb-920a-e99de6c900eb.png)
 
+
 ## Running the tests
 
 * For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code. I also used Webmock and VCR to cut down on calls to the 3 API's used and speed up test time.
