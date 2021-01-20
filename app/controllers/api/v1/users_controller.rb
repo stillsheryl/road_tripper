@@ -11,10 +11,7 @@ class Api::V1::UsersController < ApplicationController
 
       render json: output, status: :created
     else
-      error_message = {
-        error: user.errors.full_messages.to_sentence,
-        status: 400
-      }
+      error_message = { error: user.errors.full_messages.to_sentence, status: 400 }
 
       render json: error_message, status: :bad_request
     end

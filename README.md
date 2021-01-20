@@ -79,7 +79,7 @@ end
 
 * For testing I implemented RSpec, which is a tool for unit testing that will ensure we have the intended functionality at each level of our code. I also used Webmock and VCR to cut down on calls to the 3 API's used and speed up test time.
 
-* In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
+* In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests. When you run the test suite VCR cassette will automatically be made.
 
 * Test coverage is at 100% with 55 passing tests. Before VCR it took 8 seconds for tests to run:
 ![Screen Shot 2021-01-19 at 3 11 15 PM](https://user-images.githubusercontent.com/7945439/105099252-9c481380-5a68-11eb-9338-354521fdcc62.png)

@@ -50,7 +50,7 @@ describe "User Login API endpoint" do
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
+    expect(user[:error]).to eq("Invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 
@@ -67,7 +67,7 @@ describe "User Login API endpoint" do
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
+    expect(user[:error]).to eq("Invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 
@@ -84,7 +84,7 @@ describe "User Login API endpoint" do
     user = JSON.parse(response.body, symbolize_names: true)
 
     expect(user).to be_a(Hash)
-    expect(user[:error]).to eq("You have entered an invalid email or password. Please try again.")
+    expect(user[:error]).to eq("Invalid email or password. Please try again.")
     expect(user[:status]).to eq(400)
   end
 end
