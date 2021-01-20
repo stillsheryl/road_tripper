@@ -12,7 +12,7 @@ class BackgroundsFacade
 
     return { error: 'Please provide a valid city for the search.', status: 400 } if photo_info[:total] == 0
 
-    Photo.new(photo_info, params)  
+    Photo.new(photo_info, params)
   end
 
   def self.get_weather(coordinates)
