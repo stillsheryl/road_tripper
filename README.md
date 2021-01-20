@@ -342,6 +342,8 @@ Example of a request for a trip that's not possible:
 * Determine completion criteria based on the needs of other developers
 * Research, select, and consume an API based on your needs as a developer
 
+* Short [presentation](https://docs.google.com/presentation/d/1cUtI9htOLyi_dUQ3xGgEyIoHTQEIJ_7QX-U9tcl8YIw/edit?usp=sharing) used for my evaluation.
+
 ## Versioning
 
 This is the first version of this API. If you have any comments or feedback, please feel free to reach out to me!
