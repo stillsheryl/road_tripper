@@ -8,7 +8,7 @@ class HourlyWeather
               :icon
 
   def initialize(weather_data)
-    @time = Date.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
+    @time = DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
     @temperature = fahrenheit(weather_data[:temp])
     @wind_speed = "#{weather_data[:wind_speed]} mph"
     @wind_direction = "from #{wind_direction_from_integer(weather_data[:wind_deg])}"

@@ -38,7 +38,7 @@ describe Weather, type: :poros do
     expect(hourly_weather.conditions).to eq("clear sky")
     expect(hourly_weather.icon).to eq("01n")
     expect(hourly_weather.temperature).to eq(35.910000000000025)
-    expect(hourly_weather.time).to eq(" 0:00:00")
+    expect(hourly_weather.time).to eq(" 2:00:00")
     expect(hourly_weather.wind_direction).to eq("from W")
     expect(hourly_weather.wind_speed).to eq("3.07 mph")
 
