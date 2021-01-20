@@ -84,7 +84,7 @@ end
 * Test coverage is at 100% with 55 passing tests. Before VCR it took 8 seconds for tests to run:
 ![Screen Shot 2021-01-19 at 3 11 15 PM](https://user-images.githubusercontent.com/7945439/105099252-9c481380-5a68-11eb-9338-354521fdcc62.png)
 
-After VCR it takes less than 1 second to run the tests:
+* After VCR it takes less than 1 second to run the tests:
 ![simplecov_with_vcr](https://user-images.githubusercontent.com/7945439/105105354-2f854700-5a71-11eb-998f-ab930d2341ea.png)
 
 ## API Endpoints
