@@ -1,4 +1,5 @@
 class HourlyWeather
+  include TempConverter
   attr_reader :time,
               :temperature,
               :wind_speed,
@@ -20,9 +21,5 @@ class HourlyWeather
     index = (val % 16)
     arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
     arr[index]
-  end
-
-  def fahrenheit(temp)
-    (temp - 273.15) * (9 / 5) + 32
   end
 end

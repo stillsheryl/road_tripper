@@ -1,4 +1,5 @@
 class Weather
+  include TempConverter
   attr_reader :current_weather,
               :daily_weather,
               :hourly_weather,
@@ -36,9 +37,5 @@ class Weather
     weather_data.first(8).map do |hourly|
       HourlyWeather.new(hourly)
     end
-  end
-
-  def fahrenheit(temp)
-    (temp - 273.15) * (9 / 5) + 32
   end
 end

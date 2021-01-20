@@ -1,4 +1,5 @@
 class Roadtrip
+  include TempConverter
   attr_reader :start_city,
               :end_city,
               :travel_time,
@@ -18,9 +19,5 @@ class Roadtrip
       temperature: fahrenheit(params[:temperature]),
       conditions: params[:conditions]
     }
-  end
-
-  def fahrenheit(temp)
-    (temp - 273.15) * (9 / 5) + 32
   end
 end
