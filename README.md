@@ -71,7 +71,7 @@ end
 ### Database Schema
 
 - The database contains a single table which holds user data:
-![road_trippper_db](https://user-images.githubusercontent.com/7945439/105105951-5e4fed00-5a72-11eb-8fe3-6bdd04d80d3a.png)
+![user_table](https://user-images.githubusercontent.com/7945439/105191053-e1fdee00-5af3-11eb-920a-e99de6c900eb.png)
 
 ## Running the tests
 
