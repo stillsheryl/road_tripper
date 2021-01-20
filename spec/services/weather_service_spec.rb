@@ -56,7 +56,7 @@ describe "Weather Service" do
     expect(daily_weather[:temp]).to have_key(:max)
     expect(daily_weather[:temp][:max]).to be_a(Float)
     expect(daily_weather[:temp]).to have_key(:min)
-    expect(daily_weather[:temp][:min]).to be_a(Float)
+    expect(daily_weather[:temp][:min]).to be_a(Numeric)
 
     expect(daily_weather[:weather]).to be_an(Array)
     expect(daily_weather[:weather].first).to be_a(Hash)
