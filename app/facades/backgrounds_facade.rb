@@ -1,21 +1,14 @@
 class BackgroundsFacade
   def self.get_photo(params)
-    #get coordinates from params
-    #check coordinates or return error
-    #get weather from coordinates
-    #check weather or return error
-    #get photo from weather and params
-    #check photo exists or return error
-
-  coordinates = GeocodingService.get_coordinates(params[:location])
+    coordinates = GeocodingService.get_coordinates(params[:location])
     if coordinates[:status] == 400
       return_error(coordinates)
     else
-      return_weather_from_coordinates(coordinates, params)
+      create_coordinates(coordinates, params)
     end
   end
 
-  def self.return_weather_from_coordinates(coordinates, params)
+  def self.create_coordinates(coordinates, params)
     city_coordinates = {}
     city_coordinates[:lat] = coordinates[:results].first[:locations].first[:latLng][:lat]
     city_coordinates[:long] = coordinates[:results].first[:locations].first[:latLng][:lng]
