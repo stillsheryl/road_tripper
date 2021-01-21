@@ -1,15 +1,13 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    city_coordinates = GeocodingFacade.coordinates(params[:location])
+    weather = ForecastFacade.get_forecast(params)
 
-    if city_coordinates[:status] == 400
-      render json: city_coordinates, status: 400
-    else
-      weather = WeatherFacade.weather(city_coordinates)
-
+    if weather.is_a? Weather
       output = WeatherSerializer.new(weather).to_json
 
       render json: output
+    else
+      render json: weather, status: 400
     end
   end
 end

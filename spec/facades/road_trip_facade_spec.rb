@@ -32,7 +32,7 @@ describe 'RoadTrip Facade' do
     expect(roadtrip.travel_time).to eq('Impossible')
   end
 
-  it 'coordinates from coordinates service call', :vcr do
+  it 'gets coordinates from coordinates service call', :vcr do
     coordinates = {:info=>
       {:statuscode=>0,
        :messages=>[]},
