@@ -19,11 +19,8 @@ class RoadTripFacade
   end
 
   def self.create_coordinates(coordinates)
-    coords = {}
-    coords[:lat] = coordinates[:results].first[:locations].first[:latLng][:lat]
-    coords[:long] = coordinates[:results].first[:locations].first[:latLng][:lng]
-
-    coords
+    lat_lng_map = coordinates[:results].first[:locations].first[:latLng]
+    coords = {lat: lat_lng_map[:lat], long: lat_lng_map[:lng]}
   end
 
   def self.create_trip(trip, city_coordinates, driving_time)
