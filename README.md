@@ -11,10 +11,10 @@ This is the backend service for a road trip planning application. Users can sear
 
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
-  - [API Endpoint](#api-endpoints)
+  - [API Endpoints](#api-endpoints)
   - [Learning Goals](#learning-goals)
   - [Versioning](#versioning)
-  - [Authors](#authors)
+  - [Author](#author)
   - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
