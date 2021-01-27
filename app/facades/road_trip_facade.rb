@@ -56,11 +56,16 @@ class RoadTripFacade
 
   def self.long_trip(trip, city_coordinates, hours, driving_time)
     day = hours / 24
-    daily_weather = WeatherService.get_weather(city_coordinates)
-    trip[:temperature] = daily_weather[:daily][day][:temp][:day]
-    trip[:conditions] = daily_weather[:daily][day][:weather].first[:description]
-    trip[:travel_time] = driving_time[1]
+    daily_weather = WeatherService.get_weather(city_coordinates)[:daily][day]
 
-    Roadtrip.new(trip)
+    results = {
+      temperature: daily_weather[:temp][:day],
+      conditions: daily_weather[:weather].first[:description],
+      travel_time:  driving_time[1]
+    }
+
+    trip_params = trip.merge(results)
+
+    Roadtrip.new(trip_params)
   end
 end
