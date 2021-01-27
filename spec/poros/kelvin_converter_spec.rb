@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe HourlyWeather, type: :poros do
+describe KelvinConverter, type: :poros do
   describe 'class methods' do
     it 'fahrenheit' do
       temp = 271.63
