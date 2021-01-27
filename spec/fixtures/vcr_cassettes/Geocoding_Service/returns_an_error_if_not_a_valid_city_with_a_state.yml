@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=<GEOCODING_API_KEY>&location=geocolgical,%20co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 22 Jan 2021 17:56:30 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '7339'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Fri, 22 Jan 2021 17:56:30 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=A435942C7BB1D2AFF6E96C9A23530354; Path=/; HttpOnly
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"geocolgical,
+        co"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A3XAX","geocodeQuality":"STATE","dragPoint":false,"sideOfStreet":"N","linkId":"US/GEO/p0/93585","unknownInput":"","type":"s","latLng":{"lat":38.99855,"lng":-105.54783},"displayLatLng":{"lat":38.99855,"lng":-105.54783},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=38.99855,-105.54783|marker-sm-50318A-1&scalebar=true&zoom=5&rand=-60530624"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"","adminArea3Type":"State","adminArea1":"CO","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A1XAX","geocodeQuality":"COUNTRY","dragPoint":false,"sideOfStreet":"N","linkId":"CO/GEO/p0/0","unknownInput":"","type":"s","latLng":{"lat":4.60688,"lng":-74.07184},"displayLatLng":{"lat":4.60688,"lng":-74.07184},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=4.60688,-74.07184|marker-sm-50318A-2&scalebar=true&zoom=2&rand=438575305"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Changhua
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/20","unknownInput":"","type":"s","latLng":{"lat":24.07555,"lng":120.54507},"displayLatLng":{"lat":24.07555,"lng":120.54507},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=24.07555,120.54507|marker-sm-50318A-3&scalebar=true&zoom=12&rand=-169715180"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Yilan
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/30","unknownInput":"","type":"s","latLng":{"lat":24.73098,"lng":121.7627},"displayLatLng":{"lat":24.73098,"lng":121.7627},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=24.73098,121.7627|marker-sm-50318A-4&scalebar=true&zoom=12&rand=350925263"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Louisville-Jefferson
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"KY","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"US/GEO/p0/24358","unknownInput":"","type":"s","latLng":{"lat":38.19937,"lng":-85.65353},"displayLatLng":{"lat":38.19937,"lng":-85.65353},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=38.19937,-85.65353|marker-sm-50318A-5&scalebar=true&zoom=12&rand=-369328170"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Pingtung
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/18","unknownInput":"","type":"s","latLng":{"lat":22.68329,"lng":120.48798},"displayLatLng":{"lat":22.68329,"lng":120.48798},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=22.68329,120.48798|marker-sm-50318A-6&scalebar=true&zoom=12&rand=-713971133"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Hsinchu
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/14","unknownInput":"","type":"s","latLng":{"lat":24.82699,"lng":121.013},"displayLatLng":{"lat":24.82699,"lng":121.013},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=24.82699,121.013|marker-sm-50318A-7&scalebar=true&zoom=12&rand=1671452783"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Nantou
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/23","unknownInput":"","type":"s","latLng":{"lat":23.90212,"lng":120.69045},"displayLatLng":{"lat":23.90212,"lng":120.69045},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=23.90212,120.69045|marker-sm-50318A-8&scalebar=true&zoom=12&rand=-1842294476"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Miaoli
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/12","unknownInput":"","type":"s","latLng":{"lat":24.56399,"lng":120.82103},"displayLatLng":{"lat":24.56399,"lng":120.82103},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=24.56399,120.82103|marker-sm-50318A-9&scalebar=true&zoom=12&rand=1229242899"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Yunlin
+        County","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"\u53F0\u7063","adminArea3Type":"State","adminArea1":"TW","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"TW/GEO/p0/27","unknownInput":"","type":"s","latLng":{"lat":23.69922,"lng":120.52608},"displayLatLng":{"lat":23.69922,"lng":120.52608},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=23.69922,120.52608|marker-sm-50318A-10&scalebar=true&zoom=12&rand=-1379924831"}]}]}'
+  recorded_at: Fri, 22 Jan 2021 17:56:30 GMT
+recorded_with: VCR 6.0.0
