@@ -51,11 +51,4 @@ describe Weather, type: :poros do
     expect(daily_weather.sunrise).to eq("2021/01/15 13:18:48 +0000")
     expect(daily_weather.sunset).to eq("2021/01/15 23:31:51 +0000")
   end
-
-  describe 'instance methods' do
-    it 'fahrenheit' do
-      temp = 271.63
-      expect(@weather.fahrenheit(temp).round(1)).to eq(30.5)
-    end
-  end
 end

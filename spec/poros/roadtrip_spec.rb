@@ -22,11 +22,4 @@ describe Roadtrip, type: :poros do
     expect(@roadtrip.weather_at_eta[:temperature]).to eq(37.650000000000034)
     expect(@roadtrip.weather_at_eta[:conditions]).to eq("scattered clouds")
   end
-
-  describe 'instance methods' do
-    it 'fahrenheit' do
-      temp = 271.63
-      expect(@roadtrip.fahrenheit(temp).round(1)).to eq(30.5)
-    end
-  end
 end
