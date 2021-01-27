@@ -11,6 +11,19 @@ describe "Backgrounds Facade" do
     expect(photo.image).to be_a(Hash)
   end
 
+  it "returns an error if a given location has ban coordinates", :vcr do
+    params = {
+      location: "nonamecity"
+    }
+    error = BackgroundsFacade.get_photo(params)
+
+    expect(error).to be_a(Hash)
+    expect(error).to have_key(:message)
+    expect(error[:message]).to eq("Unknown Location: nonamecity")
+    expect(error).to have_key(:status)
+    expect(error[:status]).to eq(400)
+  end
+
   it "retrieves weather for given coordinates", :vcr do
     coordinates = {:info=>
       {:statuscode=>0,
