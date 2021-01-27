@@ -15,7 +15,7 @@ class Roadtrip
 
   def weather_info(params)
     {
-      temperature: KelvinConverter.fahrenheit(params[:temperature]),
+      temperature: KelvinConverter.to_fahrenheit(params[:temperature]),
       conditions: params[:conditions]
     }
   end

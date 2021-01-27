@@ -8,7 +8,7 @@ class HourlyWeather
 
   def initialize(weather_data)
     @time = DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%k:%M:%S")
-    @temperature = KelvinConverter.fahrenheit(weather_data[:temp])
+    @temperature = KelvinConverter.to_fahrenheit(weather_data[:temp])
     @wind_speed = "#{weather_data[:wind_speed]} mph"
     @wind_direction = "from #{wind_direction_from_integer(weather_data[:wind_deg])}"
     @conditions = weather_data[:weather].first[:description]
