@@ -5,7 +5,7 @@
 
 # Road Tripper
 
-This is the backend service for a road trip planning application. Users can search for a place to visit and see the estimated travel time for the trip, as well as the forecasted weather at the destination they're looking to visit. This service provides multiple enpoints for the front end application, including weather, images, and login capabilities.
+This is the backend service for a road trip planning application. Users can search for a place to visit and see the estimated travel time for the trip, as well as the forecasted weather at the destination they're looking to visit. This service provides multiple endpoints for the front end application, including weather, images, and login capabilities.
 
 ## Summary
 
