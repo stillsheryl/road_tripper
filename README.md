@@ -5,7 +5,7 @@
 
 # Road Tripper
 
-This is the backend of a road trip planning app will allow users to see the current weather as well as the forecasted weather at the destination they're looking to visit. This application provides multiple enpoints for the front end application, including weather, images, and login capabilities.
+This is the backend of a road trip planning app will allow users to see the current weather as well as the forecasted weather at the destination they're looking to visit. This application provides multiple endpoints for the front end application, including weather, images, and login capabilities.
 
 ## Summary
 
@@ -354,4 +354,6 @@ Sheryl Stillman: [LinkedIn](https://www.linkedin.com/in/sherylstillman1/) - [Ema
 
 ## Acknowledgments
 
-Thank you to Ian and Dione, my Mod 3 Turing Instructors, for the continued support and encouragement!
+* Thank you to [Ian](https://www.linkedin.com/in/iandouglas736/) and [Dione](https://www.linkedin.com/in/dionewilson/), my Mod 3 Turing Instructors, for the continued support and encouragement!
+
+* Thank you to my amazing mentor, [Alexandra](https://www.linkedin.com/in/alexandrachakeres/), for the specific and actionable feedback!
