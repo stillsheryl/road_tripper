@@ -28,7 +28,7 @@ your local machine for development and testing purposes.
 git clone git@github.com:stillsheryl/road_tripper.git
 cd road_tripper
 bundle install
-rake db:create
+rake db:{create,migrate}
 figaro install
 ```
 
@@ -72,7 +72,7 @@ end
 
 - The database contains a single table which holds user data:
 
-![user_table](https://user-images.githubusercontent.com/7945439/105191053-e1fdee00-5af3-11eb-920a-e99de6c900eb.png)
+![users_table](https://user-images.githubusercontent.com/7945439/106023466-10477480-6084-11eb-81e7-9086764784b8.png)
 
 
 ## Running the tests
@@ -89,6 +89,8 @@ end
 
 ## API Endpoints
 
+* Begin by running your rails server with the `rails s` command, making sure that the server is running on port 3000.
+
 ### `GET /api/v1/forecast`
 
 Required parameters:
@@ -99,8 +101,6 @@ Example:
 `{
   location: "denver,co"
   }`
-
-* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
 
 * In the url bar or in [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/forecast?location=%22denver,co%22`
 
@@ -170,8 +170,6 @@ Example:
   location: "denver,co"
   }`
 
-* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
-
 * In the url bar or in [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/backgrounds?location=denver,co`
 
 Example results:
@@ -220,8 +218,6 @@ Example:
   "password_confirmation": "password"
 }`
 
-* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
-
 * In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/users` as a `POST` request, and click on the body tab under the url bar. Select JSON and add the hash from the example above.
 
 Postman example:
@@ -254,8 +250,6 @@ Example:
   "email": "whatever@example.com",
   "password": "password",
 }`
-
-* In order to see this on your local machine, you can run your rails server with the `rails s` command, making sure that the server is running on port 3000.
 
 * In [Postman](https://www.postman.com/), add `http://localhost:3000/api/v1/sessions` as a `POST` request, and click on the body tab under the url bar. Select JSON and add the hash from the example above.
 
