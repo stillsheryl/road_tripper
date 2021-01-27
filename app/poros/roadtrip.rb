@@ -1,5 +1,4 @@
 class Roadtrip
-  include TempConverter
   attr_reader :start_city,
               :end_city,
               :travel_time,
@@ -16,7 +15,7 @@ class Roadtrip
 
   def weather_info(params)
     {
-      temperature: fahrenheit(params[:temperature]),
+      temperature: KelvinConverter.to_fahrenheit(params[:temperature]),
       conditions: params[:conditions]
     }
   end

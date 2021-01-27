@@ -35,10 +35,5 @@ describe HourlyWeather, type: :poros do
     it 'wind_direction_from_integer' do
       expect(@hourly_weather.wind_direction_from_integer(35)).to eq("NE")
     end
-
-    it 'fahrenheit' do
-      temp = 271.63
-      expect(@hourly_weather.fahrenheit(temp).round(1)).to eq(30.5)
-    end
   end
 end

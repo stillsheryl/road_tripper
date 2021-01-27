@@ -1,5 +1,4 @@
 class Weather
-  include TempConverter
   attr_reader :current_weather,
               :daily_weather,
               :hourly_weather,
@@ -17,8 +16,8 @@ class Weather
       datetime: DateTime.strptime(weather_data[:dt].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
       sunrise: DateTime.strptime(weather_data[:sunrise].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
       sunset: DateTime.strptime(weather_data[:sunset].to_s,'%s').strftime("%Y/%m/%d %k:%M:%S %z"),
-      temperature: fahrenheit(weather_data[:temp]),
-      feels_like: fahrenheit(weather_data[:feels_like]),
+      temperature: KelvinConverter.to_fahrenheit(weather_data[:temp]),
+      feels_like: KelvinConverter.to_fahrenheit(weather_data[:feels_like]),
       humidity: weather_data[:humidity],
       uvi: weather_data[:uvi],
       visibility: weather_data[:visibility],

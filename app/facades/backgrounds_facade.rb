@@ -16,9 +16,8 @@ class BackgroundsFacade
   end
 
   def self.get_weather(coordinates)
-    city_coordinates = {}
-    city_coordinates[:lat] = coordinates[:results].first[:locations].first[:latLng][:lat]
-    city_coordinates[:long] = coordinates[:results].first[:locations].first[:latLng][:lng]
+    lat_lng_map = coordinates[:results].first[:locations].first[:latLng]
+    city_coordinates = {lat: lat_lng_map[:lat], long: lat_lng_map[:lng]}
 
     WeatherService.get_weather(city_coordinates)
   end

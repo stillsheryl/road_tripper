@@ -348,4 +348,6 @@ Sheryl Stillman: [LinkedIn](https://www.linkedin.com/in/sherylstillman1/) - [Ema
 
 ## Acknowledgments
 
-Thank you to Ian and Dione, my Mod 3 Turing Instructors, for the continued support and encouragement!
+* Thank you to [Ian](https://www.linkedin.com/in/iandouglas736/) and [Dione](https://www.linkedin.com/in/dionewilson/), my Mod 3 Turing Instructors, for the continued support and encouragement!
+
+* Thank you to my amazing mentor, [Alexandra](https://www.linkedin.com/in/alexandrachakeres/), for the specific and actionable feedback!
