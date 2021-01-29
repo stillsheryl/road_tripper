@@ -97,8 +97,8 @@ describe "Weather Service" do
     expect(weather).to be_a(Hash)
     expect(weather).to have_key(:status)
     expect(weather[:status]).to eq(400)
-    expect(weather).to have_key(:error)
-    expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
+    expect(weather).to have_key(:message)
+    expect(weather[:message]).to eq('Please provide valid latitude and longitude values.')
   end
 
   it "sends the hourly forecast for the given city when given lat/long params", :vcr do
@@ -142,8 +142,8 @@ describe "Weather Service" do
     expect(weather).to be_a(Hash)
     expect(weather).to have_key(:status)
     expect(weather[:status]).to eq(400)
-    expect(weather).to have_key(:error)
-    expect(weather[:error]).to eq('Please provide valid latitude and longitude values.')
+    expect(weather).to have_key(:message)
+    expect(weather[:message]).to eq('Please provide valid latitude and longitude values.')
   end
 
   it 'returns false if the coordinates do not exist for given city' do

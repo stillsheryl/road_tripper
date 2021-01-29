@@ -15,7 +15,7 @@ class WeatherService
 
       JSON.parse(response.body, symbolize_names: true)
     else
-      { error: 'Please provide valid latitude and longitude values.', status: 400 }
+      { message: 'Please provide valid latitude and longitude values.', status: 400, error: true }
     end
   end
 
@@ -29,7 +29,7 @@ class WeatherService
 
       JSON.parse(response.body, symbolize_names: true)
     else
-      { error: 'Please provide valid latitude and longitude values.', status: 400 }
+      { message: 'Please provide valid latitude and longitude values.', status: 400, error: true }
     end
   end
 

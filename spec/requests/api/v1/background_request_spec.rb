@@ -59,7 +59,7 @@ describe "Background API endpoint" do
     image = JSON.parse(response.body, symbolize_names: true)
 
     expect(image).to be_a(Hash)
-    expect(image[:message]).to eq("Unknown Location: dbwuqiCBVYWrbretr")
+    expect(image[:message]).to eq("Unknown Location: dbwuqiCBVYWrbretr. Please provide a valid city.")
     expect(image[:status]).to eq(400)
   end
 end
