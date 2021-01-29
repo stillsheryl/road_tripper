@@ -13,11 +13,21 @@ class GeocodingService
     body = JSON.parse(response.body, symbolize_names: true) if response.body != ''
 
     if response.body == '' || city == ''
-      {:message => "Unknown Location: #{city}", :status => 400}
+      error_message(city)
     elsif body[:results].first[:locations].first[:geocodeQualityCode][0..1] == "A5"
-      JSON.parse(response.body, symbolize_names: true)
+      map_data = JSON.parse(response.body, symbolize_names: true)
+      create_coordinates(map_data)
     else
-      {:message => "Unknown Location: #{city}", :status => 400}
+      error_message(city)
     end
+  end
+
+  def self.create_coordinates(map_data)
+    lat_lng_map = map_data[:results].first[:locations].first[:latLng]
+    coords = {lat: lat_lng_map[:lat], long: lat_lng_map[:lng], error: false}
+  end
+
+  def self.error_message(city)
+    { message: "Unknown Location: #{city}", status: 400, error: true }
   end
 end

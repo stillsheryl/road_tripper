@@ -32,27 +32,6 @@ describe 'RoadTrip Facade' do
     expect(roadtrip.travel_time).to eq('Impossible')
   end
 
-  it 'gets coordinates from coordinates service call', :vcr do
-    coordinates = {:info=>
-      {:statuscode=>0,
-       :messages=>[]},
-     :results=>
-      [{:providedLocation=>{:location=>"Denver,CO"},
-        :locations=>
-         [{
-           :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-           :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853}},
-           {
-       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
-       }]}]}
-    coordinates = RoadTripFacade.create_coordinates(coordinates)
-
-    expect(coordinates).to be_a(Hash)
-    expect(coordinates).to have_key(:lat)
-    expect(coordinates).to have_key(:long)
-  end
-
   it 'creates trip from data for valid trip', :vcr do
     trip = {
       start_city: "Denver,CO",

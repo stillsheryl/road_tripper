@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/geocoding/v1/address?key=<GEOCODING_API_KEY>&location=Hdyefw%3Blib,CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 29 Jan 2021 21:48:10 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '3299'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Fri, 29 Jan 2021 21:48:10 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=7623158E0C92839A5F333B38E1E6A5AD; Path=/; HttpOnly
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"Hdyefw;lib,CO"},"locations":[{"street":"Lib
+        Lane & County Road 26","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Ragland","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"AL","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"35131","geocodeQualityCode":"I1CCA","geocodeQuality":"INTERSECTION","dragPoint":false,"sideOfStreet":"N","linkId":"US/XSTR/p0/2893920","unknownInput":"","type":"s","latLng":{"lat":33.76422,"lng":-86.23267},"displayLatLng":{"lat":33.76422,"lng":-86.23267},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=33.76422,-86.23267|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1502327634"},{"street":"Sara
+        Lib Road & Esperance Road","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Esp\u00E9rance","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"NY","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"12066","geocodeQualityCode":"I1CCA","geocodeQuality":"INTERSECTION","dragPoint":false,"sideOfStreet":"N","linkId":"US/XSTR/p2/2974436","unknownInput":"","type":"s","latLng":{"lat":42.79687,"lng":-74.34038},"displayLatLng":{"lat":42.79687,"lng":-74.34038},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=42.79687,-74.34038|marker-sm-50318A-2&scalebar=true&zoom=15&rand=418155231"},{"street":"Sara
+        Lib Road & Burtonville Road","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Fultonville","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"NY","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"12072","geocodeQualityCode":"I1CCA","geocodeQuality":"INTERSECTION","dragPoint":false,"sideOfStreet":"N","linkId":"US/XSTR/p2/2974465","unknownInput":"","type":"s","latLng":{"lat":42.81738,"lng":-74.31159},"displayLatLng":{"lat":42.81738,"lng":-74.31159},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=42.81738,-74.31159|marker-sm-50318A-3&scalebar=true&zoom=15&rand=-153757826"},{"street":"Lib
+        Vanderford Road & County Road 129","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Mendenhall","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"MS","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"39114","geocodeQualityCode":"I1CCA","geocodeQuality":"INTERSECTION","dragPoint":false,"sideOfStreet":"N","linkId":"US/XSTR/p3/1100048","unknownInput":"","type":"s","latLng":{"lat":32.04646,"lng":-89.72982},"displayLatLng":{"lat":32.04646,"lng":-89.72982},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<GEOCODING_API_KEY>&type=map&size=225,160&locations=32.04646,-89.72982|marker-sm-50318A-4&scalebar=true&zoom=15&rand=1918752517"}]}]}'
+  recorded_at: Fri, 29 Jan 2021 21:48:10 GMT
+recorded_with: VCR 6.0.0

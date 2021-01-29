@@ -12,15 +12,9 @@ class RoadTripFacade
 
     return impossible_trip(trip) if coordinates[:status] == 400
 
-    city_coordinates = create_coordinates(coordinates)
     driving_time = [times[:route][:realTime], times[:route][:formattedTime][0..4]]
 
-    create_trip(trip, city_coordinates, driving_time)
-  end
-
-  def self.create_coordinates(coordinates)
-    lat_lng_map = coordinates[:results].first[:locations].first[:latLng]
-    coords = {lat: lat_lng_map[:lat], long: lat_lng_map[:lng]}
+    create_trip(trip, coordinates, driving_time)
   end
 
   def self.create_trip(trip, city_coordinates, driving_time)

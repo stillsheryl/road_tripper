@@ -15,24 +15,16 @@ describe "Forecast Facade" do
     expect(results.hourly_weather.count).to eq(8)
   end
 
-  it 'gets coordinates from coordinates service call', :vcr do
-    coordinates = {:info=>
-      {:statuscode=>0,
-       :messages=>[]},
-     :results=>
-      [{:providedLocation=>{:location=>"Denver,CO"},
-        :locations=>
-         [{
-           :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-           :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853}},
-           {
-       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
-       }]}]}
-    coordinates = ForecastFacade.create_coordinates(coordinates)
+  it "returns an error for invalid city input", :vcr do
+    params = {
+      location: "Hdyefw;lib,CO"
+    }
+    results = ForecastFacade.get_forecast(params)
 
-    expect(coordinates).to be_a(Hash)
-    expect(coordinates).to have_key(:lat)
-    expect(coordinates).to have_key(:long)
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:message)
+    expect(results[:message]).to eq("Unknown Location: Hdyefw;lib,CO")
+    expect(results).to have_key(:status)
+    expect(results[:status]).to eq(400)
   end
 end

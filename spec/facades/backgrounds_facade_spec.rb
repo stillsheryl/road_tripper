@@ -19,32 +19,9 @@ describe "Backgrounds Facade" do
 
     expect(error).to be_a(Hash)
     expect(error).to have_key(:message)
-    expect(error[:message]).to eq("Unknown Location: nonamecity")
+    expect(error[:message]).to eq("Unknown Location: nonamecity. Please provide a valid city.")
     expect(error).to have_key(:status)
     expect(error[:status]).to eq(400)
-  end
-
-  it "retrieves weather for given coordinates", :vcr do
-    coordinates = {:info=>
-      {:statuscode=>0,
-       :messages=>[]},
-     :results=>
-      [{:providedLocation=>{:location=>"Denver,CO"},
-        :locations=>
-         [{
-           :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-           :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853}},
-           {
-       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
-       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
-       }]}]}
-
-    weather = BackgroundsFacade.get_weather(coordinates)
-
-    expect(weather).to be_a(Hash)
-    expect(weather).to have_key(:current)
-    expect(weather).to have_key(:hourly)
-    expect(weather).to have_key(:daily)
   end
 
   it "retrieves photo with weather and search location", :vcr do

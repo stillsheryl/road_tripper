@@ -15,7 +15,7 @@ class WeatherService
 
       JSON.parse(response.body, symbolize_names: true)
     else
-      { error: 'Please provide valid latitude and longitude values.', status: 400 }
+      error_message
     end
   end
 
@@ -29,11 +29,15 @@ class WeatherService
 
       JSON.parse(response.body, symbolize_names: true)
     else
-      { error: 'Please provide valid latitude and longitude values.', status: 400 }
+      error_message
     end
   end
 
   def self.check_lat_lon(params)
     params[:lat].to_i.between?(-90, 90) && params[:long].to_i.between?(-180, 180)
+  end
+
+  def self.error_message
+    { message: 'Please provide valid latitude and longitude values.', status: 400, error: true }
   end
 end
