@@ -14,4 +14,17 @@ describe "Forecast Facade" do
     expect(results.hourly_weather).to be_an(Array)
     expect(results.hourly_weather.count).to eq(8)
   end
+
+  it "returns an error for invalid city input", :vcr do
+    params = {
+      location: "Hdyefw;lib,CO"
+    }
+    results = ForecastFacade.get_forecast(params)
+
+    expect(results).to be_a(Hash)
+    expect(results).to have_key(:message)
+    expect(results[:message]).to eq("Unknown Location: Hdyefw;lib,CO")
+    expect(results).to have_key(:status)
+    expect(results[:status]).to eq(400)
+  end
 end
