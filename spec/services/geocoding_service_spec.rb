@@ -8,22 +8,10 @@ describe "Geocoding Service" do
     results = GeocodingService.get_coordinates(params[:location])
 
     expect(results).to be_a(Hash)
-    expect(results).to have_key(:results)
-    expect(results[:results]).to be_an(Array)
-
-    coordinates = results[:results].first
-
-    expect(coordinates).to have_key(:locations)
-    expect(coordinates[:locations]).to be_an(Array)
-
-    expect(coordinates[:locations].first).to have_key(:latLng)
-    expect(coordinates[:locations].first[:latLng]).to be_a(Hash)
-
-    expect(coordinates[:locations].first[:latLng]).to have_key(:lat)
-    expect(coordinates[:locations].first[:latLng][:lat]).to be_a(Float)
-
-    expect(coordinates[:locations].first[:latLng]).to have_key(:lng)
-    expect(coordinates[:locations].first[:latLng][:lng]).to be_a(Float)
+    expect(results).to have_key(:lat)
+    expect(results[:lat]).to be_a(Float)
+    expect(results).to have_key(:long)
+    expect(results[:long]).to be_a(Float)
   end
 
   it "returns an error if not a valid city with a state", :vcr do
@@ -71,5 +59,29 @@ describe "Geocoding Service" do
     expect(response).to be_a(Hash)
     expect(response[:message]).to eq("Unknown Location: ")
     expect(response[:status]).to eq(400)
+  end
+
+  it "retrieves weather for given coordinates" do
+    coordinates = {:info=>
+      {:statuscode=>0,
+       :messages=>[]},
+     :results=>
+      [{:providedLocation=>{:location=>"Denver,CO"},
+        :locations=>
+         [{
+           :latLng=>{:lat=>39.738453, :lng=>-104.984853},
+           :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853}},
+           {
+       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
+       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
+       }]}]}
+
+    weather = GeocodingService.create_coordinates(coordinates)
+
+    expect(weather).to be_a(Hash)
+    expect(weather).to have_key(:lat)
+    expect(weather[:lat]).to be_a(Float)
+    expect(weather).to have_key(:long)
+    expect(weather[:long]).to be_a(Float)
   end
 end
