@@ -16,10 +16,7 @@ class BackgroundsFacade
   end
 
   def self.get_weather(coordinates)
-    lat_lng_map = coordinates[:results].first[:locations].first[:latLng]
-    city_coordinates = {lat: lat_lng_map[:lat], long: lat_lng_map[:lng]}
-
-    WeatherService.get_weather(city_coordinates)
+    WeatherService.get_weather(coordinates)
   end
 
   def self.get_photo_info(weather_info, params)
