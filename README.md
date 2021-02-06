@@ -338,6 +338,8 @@ Example of a request for a trip that's not possible:
 
 * Short [presentation](https://docs.google.com/presentation/d/1cUtI9htOLyi_dUQ3xGgEyIoHTQEIJ_7QX-U9tcl8YIw/edit?usp=sharing) used for my evaluation.
 
+* Project Description: [Sweater Weather](https://backend.turing.io/module3/projects/sweater_weather/)
+
 ## Versioning
 
 This is the first version of this API. If you have any comments or feedback, please feel free to reach out to me!
